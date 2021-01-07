@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IDS Enterprise - Angular Components</title>
+
+  <base href="/">
+
+  <!-- prevent render loop from initializing on load -->
+  <script>
+    window['SohoConfig'] = { renderLoop: { noAutoStart: true }};
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <!-- DO NOT REMOVE - Required for the themes to work. -->
+  <link rel="stylesheet" id="stylesheet" href=" assets/ids-enterprise/css/light-theme.css" type="text/css">
+</head>
+<body>
+<div class="busy" style="height: 100%; width: 100%;">
+  <div class="overlay busy">
+  </div>
+  <div class="busy-indicator-container blocked-ui" aria-live="polite" role="status">
+    <div class="busy-indicator active">
+      <div class="bar one"></div>
+      <div class="bar two"></div>
+      <div class="bar three"></div>
+      <div class="bar four"></div>
+      <div class="bar five"></div>
+    </div>
+    <span>Loading...</span>
+  </div>
+</div>
+</body>
+</html>
