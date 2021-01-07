@@ -1,0 +1,35 @@
+<soho-toolbar noActionsButton="true" maxVisibleButtons="4">
+
+  <soho-toolbar-title>
+     <button soho-button="icon" icon="logo" id="logo-homepage" tabindex="0">
+      <span class="audible">Go To Home</span>
+    </button>
+    <h1 class="masthead-appname">IDS Enterprise Angular Components</h1>
+  </soho-toolbar-title>
+
+  <soho-toolbar-button-set>
+
+    <button soho-button [isToggle]="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined"
+      [isTogglePressed]="running" (click)="toggleRenderLoop()">{{renderLoopCount}}</button>
+
+    <button soho-button="icon" icon="user">
+      <span class="audible">User</span>
+    </button>
+
+    <button soho-button="icon" icon="mingle-share">
+      <span class="audible">Share</span>
+    </button>
+
+    <button soho-button="icon" icon="bookmark-filled">
+      <span class="audible">Bookmark</span>
+    </button>
+
+    <button soho-button="icon" icon="expand-app-tray">
+      <span class="audible">Expand App Tray</span>
+    </button>
+
+  </soho-toolbar-button-set>
+
+
+
+</soho-toolbar>
