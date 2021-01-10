@@ -1,4 +1,4 @@
-# Angular Test Project with Infor company
+# My personal Angular Test Project with Infor company
 
 # IdsEnterpriseNgQuickstart
 
