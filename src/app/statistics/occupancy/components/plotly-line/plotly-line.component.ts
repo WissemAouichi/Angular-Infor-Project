@@ -33,7 +33,7 @@ export class PlotlyLineComponent implements OnInit{
             layout: {
               xaxis: {
                 autorange: true,
-                range: ['2015-02-17', '2017-02-16'],
+                range: ['2019-01-01', '2019-09-01'],
                 rangeselector: {buttons: [
                     {
                       count: 1,
