@@ -1,10 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { OCCUPANCY_DATA } from "src/app/demodata/sample-data";
 
 declare const Plotly;
 @Component({
     selector: 'plotly-line',
-    templateUrl:'plotly-line.component.html'
+    template:'<div #myDiv></div>'
 })
 
 export class PlotlyLineComponent implements OnInit{
