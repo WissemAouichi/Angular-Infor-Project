@@ -4,6 +4,7 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { DataGridOccupancyComponent } from './occupancy/components/data-grid-occupancy/data-grid-occupancy.component';
 import { ExportDataGridComponent } from './occupancy/components/data-grid-occupancy/export-data-grid/export-data-grid.component';
 import { LineChartOccupancyComponent } from './occupancy/components/line-chart-occupancy/line-chart-occupancy.component';
+import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-line.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     DataGridOccupancyComponent,
     LineChartOccupancyComponent,
     ExportDataGridComponent,
+    PlotlyLineComponent
   ],
   imports: [SohoComponentsModule, CommonModule]
 })
