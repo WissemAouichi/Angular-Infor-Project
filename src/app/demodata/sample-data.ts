@@ -34,7 +34,7 @@ export const OCCUPANCY_DATA: OccupanyModel[] = [
   {date: '31/01/2019', capacity: 100, occupancy: 75},
   {date: '01/02/2019', capacity: 100, occupancy: 41},
   {date: '02/02/2019', capacity: 100, occupancy: 78},
-  {date: '03/02/2019', capacity: 100, occupancy: 48},
+  {date: '03/02/2019', capacity: 100, occupancy: 47},
   {date: '04/02/2019', capacity: 99, occupancy: 42},
   {date: '05/02/2019', capacity: 100, occupancy: 28},
   {date: '06/02/2019', capacity: 100, occupancy: 23},
