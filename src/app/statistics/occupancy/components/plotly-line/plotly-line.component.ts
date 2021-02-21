@@ -57,7 +57,8 @@ export class PlotlyLineComponent implements OnInit{
                 autorange: true,
                 range: [26.8700008333, 138.870004167],
                 type: 'linear'
-              }
+              },
+              showlegend: false
             }
         };
     }
@@ -66,7 +67,7 @@ export class PlotlyLineComponent implements OnInit{
             this.myDivContainer.nativeElement,
             this.myDiv.data,
             this.myDiv.layout,
-            this.myDiv.config
+            {displaylogo: false}
         );
     }
 }
