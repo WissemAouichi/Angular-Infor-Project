@@ -3,7 +3,7 @@ import  OCCUPANCY_FORECAST  from '../price-variation/Price Variation.json'
 
 declare const Plotly;
 @Component({
-    selector: 'price-variation',
+    selector: 'occupancy-forecast',
     template:'<div #myDiv></div>'
 })
 
