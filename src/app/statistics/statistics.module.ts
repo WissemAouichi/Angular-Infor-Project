@@ -5,6 +5,7 @@ import { DataGridOccupancyComponent } from './occupancy/components/data-grid-occ
 import { ExportDataGridComponent } from './occupancy/components/data-grid-occupancy/export-data-grid/export-data-grid.component';
 import { LineChartOccupancyComponent } from './occupancy/components/line-chart-occupancy/line-chart-occupancy.component';
 import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-line.component';
+import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     DataGridOccupancyComponent,
     LineChartOccupancyComponent,
     ExportDataGridComponent,
-    PlotlyLineComponent
+    PlotlyLineComponent,
+    PriceVariationComponent
   ],
   imports: [SohoComponentsModule, CommonModule]
 })
