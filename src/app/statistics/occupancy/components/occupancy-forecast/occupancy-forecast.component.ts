@@ -115,16 +115,16 @@ export class OccupancyForecastComponent implements OnInit{
         arr.push(this.priceData[1].values[i].y)}
       return(arr);
       }
-      private maplblCurrentPrice(){
-        let arr=[];
-        for (let i=0;i<this.priceData[2].values.length;i++){
-          arr.push(this.priceData[2].values[i].y)}
-        return(arr);
-        }  
-      private maplblPriceDecision(){
-        let arr=[];
-        for (let i=0;i<this.priceData[3].values.length;i++){
-          arr.push(this.priceData[3].values[i].y)}
-        return(arr);
-        } 
+    private maplblCurrentPrice(){
+    let arr=[];
+    for (let i=0;i<this.priceData[2].values.length;i++){
+        arr.push(this.priceData[2].values[i].y)}
+    return(arr);
+    }  
+    private maplblPriceDecision(){
+    let arr=[];
+    for (let i=0;i<this.priceData[3].values.length;i++){
+        arr.push(this.priceData[3].values[i].y)}
+    return(arr);
+    } 
 }
