@@ -91,7 +91,7 @@ export class PriceVariationComponent implements OnInit{
                 range: [98, 320],
                 type: 'linear'
               },
-              showlegend: false
+              showlegend: true
             }
         };
     }
