@@ -4,7 +4,8 @@ import  PRICE_VARIATION  from '../price-variation/Price Variation.json'
 declare const Plotly;
 @Component({
     selector: 'price-variation',
-    template:'<div #myDiv></div>'
+    template:`<div #myDiv></div>
+    `
 })
 
 export class PriceVariationComponent implements OnInit{
@@ -91,7 +92,8 @@ export class PriceVariationComponent implements OnInit{
                 range: [98, 320],
                 type: 'linear'
               },
-              showlegend: true
+              showlegend: true,
+              
             }
         };
     }
@@ -103,6 +105,11 @@ export class PriceVariationComponent implements OnInit{
             {displaylogo: false}
         );
     }
+
+    handleEventRange(date){
+      console.log("my range is :",date)
+    }
+
     private maplblMaxPrice(){
       let arr=[];
       for (let i=0;i<this.priceData[0].values.length;i++){

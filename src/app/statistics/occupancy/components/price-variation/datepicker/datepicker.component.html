@@ -162,3 +162,35 @@
       </div>
     </div>
   </form>
+<form>
+
+    <div class="row top-padding"></div>
+    
+    <div class="row">
+      <div class="four columns">
+        <div class="field">
+          <label for="range" class="label">Date with Range (set via mode)</label>
+          <input soho-datepicker name="range" dateFormat="yyyy/dd/MM" mode="range" placeholder="yyyy/dd/MM" [(ngModel)]="model.range" (eventRange)="onChange($event)" class="input-mm"/>
+        </div>
+      </div>
+    </div>
+<!--**    
+    <div class="row">
+      <div class="four columns">
+        <div class="field">
+          <label for="validrange" class="label">Valid Range 2016</label>
+          <input soho-datepicker name="validrange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
+                 [disable]="disableOptions"
+                 [(ngModel)]="model.validrange" (change)="onChange($event)"/>
+        </div>
+      </div>
+
+      <div class="four columns">
+        <div class="field">
+          <label for="range2" class="label">Date with Range (set via range)</label>
+          <input soho-datepicker name="range2" dateFormat="yyyy/dd/MM" mode="standard" placeholder="yyyy/dd/MM" [range]="rangeOptions" [(ngModel)]="model.range2" (change)="onChange($event)" class="input-mm"/>
+        </div>
+      </div>
+    </div>
+**-->
+  </form>

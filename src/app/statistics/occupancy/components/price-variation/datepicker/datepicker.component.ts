@@ -15,15 +15,15 @@ import {
     @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
   
     public model = {
-      standard: '12/12/2016',
-      validrange: '12/12/2016',
+      standard: '2020/01/01',
+      validrange: '2020/01/01',
       anniversary: '',
       birthday: '',
       year: '',
       datetime: '',
       datetime2: '05.04.2018 16:15',
-      range: '12/12/2016 - 12/26/2016',
-      range2: '1/12/2017 - 1/16/2017',
+      range: '2020/01/01 - 2020/09/01',
+      range2: '2020/01/01 - 2020/09/01',
       umalqura: ''
     };
     public showModel = false;
@@ -32,21 +32,21 @@ import {
   
     public disableOptions: SohoDatePickerDisable = {
       dates: '',
-      minDate: '12/31/2015',
-      maxDate: '1/1/2017',
+      minDate: '2020/01/01',
+      maxDate: '2020/31/09',
       dayOfWeek: []
     };
   
     public disableOptions2: SohoDatePickerDisable = {
       dates: '',
-      minDate: new Date(2018, 2, 8),
-      maxDate: new Date(2018, 3, 10),
+      minDate: new Date(2020, 1, 1),
+      maxDate: new Date(2018, 9, 1),
       dayOfWeek: []
     };
   
     public rangeOptions: SohoDatePickerRange = {
-      start: new Date(2016, 12, 12),
-      end: new Date(2016, 12, 16),
+      start: new Date(2020, 1, 1),
+      end: new Date(2020, 9, 1),
       useRange: true
     };
   
@@ -56,7 +56,7 @@ import {
       minuteInterval: 10,
       secondInterval: 10,
       roundToInterval: true,
-      dateFormat: 'mm/dd/yyyy',
+      dateFormat: 'yyyy/dd/mm',
       placeholder: 'placeholder',
       showLegend: true,
       showMonthYearPicker: true,
@@ -86,7 +86,7 @@ import {
     }
   
     onChange(event: SohoDatePickerEvent) {
-      console.log('DatePickerDemoComponent.onChange: type=' + event.type, 'Has originalEvent: ' + (event.originalEvent !== undefined));
+      console.log('DatePickerDemoComponent.onChange: type=' + event.data, 'Has originalEvent: ' + (event.originalEvent !== undefined));
     }
   
     setEnable() {
