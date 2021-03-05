@@ -1,4 +1,6 @@
 <ng-container *ngIf="occupancyData">
+  <!--*** Price Variation ***-->
+  <price-variation></price-variation>
   <!--***** Data Grid *****-->
   <data-grid-occupancy [occupancyData]="occupancyData"></data-grid-occupancy>
   <!--***** Line Chart *****-->
@@ -7,8 +9,6 @@
   <export-data-grid></export-data-grid>
   <!--**** Plotly line *****-->
   <plotly-line></plotly-line>
-  <!--*** Price Variation ***-->
-  <price-variation></price-variation>
 
   <date-picker ></date-picker>
 </ng-container>

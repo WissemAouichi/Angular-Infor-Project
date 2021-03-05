@@ -4,7 +4,18 @@ import  PRICE_VARIATION  from '../price-variation/Price Variation.json'
 declare const Plotly;
 @Component({
     selector: 'price-variation',
-    template:`<div #myDiv></div>
+    template:`<div class="row top-padding">
+    <div class="two-thirds column">
+      <div class="widget">
+        <div class="widget-header">
+          <h2 class="widget-title">Price Variation</h2>
+        </div>
+        <div class="widget-content">
+            <div id="myDiv" #myDiv></div>
+        </div>
+      </div>
+    </div>
+  </div>
     `
 })
 
@@ -61,12 +72,22 @@ export class PriceVariationComponent implements OnInit{
                 mode: "lines",
                 line: {
                   color: "#0072ED"
-                }
+                },
               },
             ],
             layout: {
+              height: 300,
+              margin: {
+                l: 35,
+                r: 0,
+                b: 0,
+                t: 30,
+                pad: 0
+              },
+              hovermode:"compare",
               xaxis: {
                 autorange: true,
+                domain: [0, 1], 
                 range: ['2020-01-01', '2020-09-01'],
                 rangeselector: {buttons: [
                     {
@@ -83,32 +104,33 @@ export class PriceVariationComponent implements OnInit{
                     },
                     {step: 'all'}
                   ]},
-                rangeslider: {range: ['2020-01-01', '2020-09-01'],
-                              yaxis:{rangemode:"auto"}},
+                rangeslider: {
+                              range: ['2020-01-01', '2020-09-01'],
+                              yaxis:{rangemode:"auto"}
+                            },
                 type: 'date'
               },
               yaxis: {
+                automargin: true,
                 autorange: false,
-                range: [98, 320],
-                type: 'linear'
+                range:[80,340],
+                type: 'linear',
+                autotypenumbers:'strict'
               },
-              showlegend: true,
-              
+              showlegend: false,
             }
         };
     }
+
     ngAfterViewInit() {
-        Plotly.newPlot(
-            this.myDivContainer.nativeElement,
-            this.myDiv.data,
-            this.myDiv.layout,
-            {displaylogo: false}
-        );
+      Plotly.plot(
+          this.myDivContainer.nativeElement,
+          this.myDiv.data,
+          this.myDiv.layout,
+          {displaylogo: false,responsive: true}
+      );
     }
 
-    handleEventRange(date){
-      console.log("my range is :",date)
-    }
 
     private maplblMaxPrice(){
       let arr=[];
@@ -122,16 +144,16 @@ export class PriceVariationComponent implements OnInit{
         arr.push(this.priceData[1].values[i].y)}
       return(arr);
       }
-      private maplblCurrentPrice(){
-        let arr=[];
-        for (let i=0;i<this.priceData[3].values.length;i++){
-          arr.push(this.priceData[3].values[i].y)}
-        return(arr);
-        }  
-      private maplblPriceDecision(){
-        let arr=[];
-        for (let i=0;i<this.priceData[4].values.length;i++){
-          arr.push(this.priceData[4].values[i].y)}
-        return(arr);
-        } 
+    private maplblCurrentPrice(){
+      let arr=[];
+      for (let i=0;i<this.priceData[3].values.length;i++){
+        arr.push(this.priceData[3].values[i].y)}
+      return(arr);
+      }  
+    private maplblPriceDecision(){
+      let arr=[];
+      for (let i=0;i<this.priceData[4].values.length;i++){
+        arr.push(this.priceData[4].values[i].y)}
+      return(arr);
+      } 
 }
