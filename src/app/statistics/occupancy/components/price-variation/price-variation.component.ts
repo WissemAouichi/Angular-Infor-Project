@@ -79,7 +79,7 @@ export class PriceVariationComponent implements OnInit{
               height: 300,
               margin: {
                 l: 35,
-                r: 0,
+                r: 20,
                 b: 0,
                 t: 30,
                 pad: 0
