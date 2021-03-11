@@ -188,7 +188,7 @@ export const OCCUPANCY_DATA: OccupanyModel[] = [
   {date: '2019-07-04', capacity: 99, occupancy: 42},
   {date: '2019-07-05', capacity: 100, occupancy: 28},
   {date: '2019-07-06', capacity: 100, occupancy: 23},
-  {date: '2019-07', capacity: 100, occupancy: 23},
+  {date: '2019-07-07', capacity: 100, occupancy: 23},
   {date: '2019-07-08', capacity: 100, occupancy: 30},
   {date: '2019-07-09', capacity: 100, occupancy: 93},
   {date: '2019-07-10', capacity: 100, occupancy: 14},
