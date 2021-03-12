@@ -5,6 +5,7 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DataGridOccupancyComponent } from './occupancy/components/data-grid-occupancy/data-grid-occupancy.component';
 import { ExportDataGridComponent } from './occupancy/components/data-grid-occupancy/export-data-grid/export-data-grid.component';
+import { EchartsHistoricalComponent } from './occupancy/components/echarts-historical-chart/echarts-historical.component';
 import { EchartsPriceComponent } from './occupancy/components/echarts-price-variation/echarts-price-variation.component';
 import { LineChartOccupancyComponent } from './occupancy/components/line-chart-occupancy/line-chart-occupancy.component';
 import { OccupancyForecastComponent } from './occupancy/components/occupancy-forecast/occupancy-forecast.component';
@@ -24,7 +25,7 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     OccupancyForecastComponent,
     DatePickerComponent,
     EchartsPriceComponent,
-   
+   EchartsHistoricalComponent
   ],
   imports: [
     SohoComponentsModule, 
