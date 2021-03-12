@@ -16,8 +16,11 @@ export class EchartsPriceComponent {
       trigger: 'axis',
       backgroundColor: 'rgb(0,0,0)'
     },
+    legend: {
+      data: ['Price Decision', 'Max Price', 'Min Price', 'Current Price']
+  },
     title: {
-      left: 'center',
+      left: 'left',
       text: 'Price Variation',
     },
     toolbox: {
@@ -41,45 +44,53 @@ export class EchartsPriceComponent {
     dataZoom: [{
       type: 'inside',
       start: 0,
-      end: 20
+      end: 15
     }, {
       start: 0,
-      end: 20
+      end: 15
     }],
     series: [
       {
         name: 'Price Decision',
         type: 'line',
         smooth: false,
-        symbol: 'none',
+        showSymbol: false,
         data: this.maplblPriceDecision()
       },
       {
         name: 'Max Price',
         type: 'line',
-        color: '#e4e6e8',
+        z:1,
+        color:'#C6C6C6',
+        stack: "yes",
+        lineStyle:{
+          width:0,
+        },
+        areaStyle:{
+          color:'#C6C6C6',
+        },
         smooth: false,
         symbol: 'none',
-        itemStyle: {
-          color: "#e4e6e8"
-        },
-        data: this.maplblMaxPrice(),
-        areaStyle: { color: "#e4e6e8" }
+        data: this.maplblMaxPrice()
       },
       {
         name: 'Min Price',
         type: 'line',
-        color: "#FFFF",
+        z:2,
         smooth: false,
+        color:"#FFF",
         symbol: 'none',
         data: this.maplblMinPrice(),
-        areaStyle: { color: "#FFFF" }
+        areaStyle:{
+          color:"#FFF",
+          opacity:1
+        }
       },
       {
         name: 'Current Price',
         type: 'line',
         smooth: false,
-        symbol: 'none',
+        showSymbol: false,
         data: this.maplblCurrentPrice()
       },
     ]
