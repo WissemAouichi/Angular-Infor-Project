@@ -23,7 +23,7 @@ export class OccupancyIssueComponent {
   },
     title: {
       left: 'left',
-      text: 'Price Variation',
+      text: 'Occupancy Forecast',
     },
     toolbox: {
       feature: {
