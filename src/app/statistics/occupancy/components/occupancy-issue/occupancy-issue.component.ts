@@ -11,7 +11,7 @@ import PRICE_Data from '../occupancy-issue/data.json'
 })
 
 export class OccupancyIssueComponent {
-  priceData = PRICE_Data.chartDataTreeSet
+  priceData = PRICE_Data.chartData
 
   chartOption: EChartsOption = {
     tooltip: {
@@ -56,34 +56,35 @@ export class OccupancyIssueComponent {
         type: 'line',
         smooth: false,
         showSymbol: false,
-        data: this.maplblCapacity()
+        data: this.maplblCapacity(),
+        color:"#E84F4F"
       },
       {
         name: 'Occupancy Forecast',
         type: 'line',
         z:1,
-        color:'#C6C6C6',
+        color:"#2578A9",
         stack: "yes",
         lineStyle:{
           width:0,
         },
         areaStyle:{
-          color:'#C6C6C6',
+          color:"#2578A9",
         },
         smooth: false,
         symbol: 'none',
         data: this.maplblOccupancy()
       },
       {
-        name: 'Min Price',
+        name: 'On The Book',
         type: 'line',
         z:2,
         smooth: false,
-        color:"#FFF",
+        color:"#80CE4D",
         symbol: 'none',
         data: this.maplblOTB(),
         areaStyle:{
-          color:"#FFF",
+          color:"#80CE4D",
           opacity:1
         }
       },
