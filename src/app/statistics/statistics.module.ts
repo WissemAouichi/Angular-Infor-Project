@@ -10,6 +10,7 @@ import { EchartsLinesComponent } from './occupancy/components/echarts-multiline/
 import { EchartsPriceComponent } from './occupancy/components/echarts-price-variation/echarts-price-variation.component';
 import { LineChartOccupancyComponent } from './occupancy/components/line-chart-occupancy/line-chart-occupancy.component';
 import { OccupancyForecastComponent } from './occupancy/components/occupancy-forecast/occupancy-forecast.component';
+import { OccupancyIssueComponent } from './occupancy/components/occupancy-issue/occupancy-issue.component';
 import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-line.component';
 import { DatePickerComponent } from './occupancy/components/price-variation/datepicker/datepicker.component';
 import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
@@ -27,7 +28,8 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     DatePickerComponent,
     EchartsPriceComponent,
     EchartsHistoricalComponent,
-    EchartsLinesComponent
+    EchartsLinesComponent,
+    OccupancyIssueComponent
   ],
   imports: [
     SohoComponentsModule,

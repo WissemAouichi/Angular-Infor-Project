@@ -4,7 +4,9 @@ import  SIMULATION_DATA  from '../echarts-historical-chart/Simulation data.json'
 
 @Component({
     selector: 'echarts-historical',
-    template: `<div echarts [options]="chartOption" class="demo-chart"></div>`
+    template: `<div class="row top-padding">
+    <div echarts [options]="chartOption" class="demo-chart"></div>
+    </div>`
 })
 
 export class EchartsHistoricalComponent {
@@ -18,7 +20,7 @@ simulationdata=SIMULATION_DATA.graphData.chartData;
 
         title: {
             left: 'left',
-            text: 'Historical chart',
+            text: 'Simulation',
         },
         toolbox: {
             feature: {

@@ -1,17 +1,17 @@
 import { Component } from "@angular/core";
 import { EChartsOption } from "echarts";
-import PRICE_VARIATION from '../price-variation/Price Variation.json'
+import PRICE_Data from '../occupancy-issue/data.json'
 
 @Component({
-  selector: 'echarts-price',
+  selector: 'occupancy-issue',
   template: `<div class="row top-padding">
   <div echarts [options]="chartOption" class="demo-chart"></div>
   </div>
     `
 })
 
-export class EchartsPriceComponent {
-  priceData = PRICE_VARIATION.chartDataTreeSet
+export class OccupancyIssueComponent {
+  priceData = PRICE_Data.chartDataTreeSet
 
   chartOption: EChartsOption = {
     tooltip: {
@@ -52,14 +52,14 @@ export class EchartsPriceComponent {
     }],
     series: [
       {
-        name: 'Price Decision',
+        name: 'Capacity',
         type: 'line',
         smooth: false,
         showSymbol: false,
-        data: this.maplblPriceDecision()
+        data: this.maplblCapacity()
       },
       {
-        name: 'Max Price',
+        name: 'Occupancy Forecast',
         type: 'line',
         z:1,
         color:'#C6C6C6',
@@ -72,7 +72,7 @@ export class EchartsPriceComponent {
         },
         smooth: false,
         symbol: 'none',
-        data: this.maplblMaxPrice()
+        data: this.maplblOccupancy()
       },
       {
         name: 'Min Price',
@@ -81,46 +81,32 @@ export class EchartsPriceComponent {
         smooth: false,
         color:"#FFF",
         symbol: 'none',
-        data: this.maplblMinPrice(),
+        data: this.maplblOTB(),
         areaStyle:{
           color:"#FFF",
           opacity:1
         }
       },
-      {
-        name: 'Current Price',
-        type: 'line',
-        smooth: false,
-        showSymbol: false,
-        data: this.maplblCurrentPrice()
-      },
     ]
   };
-  private maplblMaxPrice() {
-    let arr = [];
-    for (let i = 0; i < this.priceData[0].values.length; i++) {
-      arr.push(this.priceData[0].values[i].y)
-    }
-    return (arr);
-  }
-  private maplblMinPrice() {
+  private maplblOccupancy() {
     let arr = [];
     for (let i = 0; i < this.priceData[1].values.length; i++) {
       arr.push(this.priceData[1].values[i].y)
     }
     return (arr);
   }
-  private maplblCurrentPrice() {
+  private maplblCapacity() {
     let arr = [];
-    for (let i = 0; i < this.priceData[3].values.length; i++) {
-      arr.push(this.priceData[3].values[i].y)
+    for (let i = 0; i < this.priceData[0].values.length; i++) {
+      arr.push(this.priceData[0].values[i].y)
     }
     return (arr);
   }
-  private maplblPriceDecision() {
+  private maplblOTB() {
     let arr = [];
-    for (let i = 0; i < this.priceData[4].values.length; i++) {
-      arr.push(this.priceData[4].values[i].y)
+    for (let i = 0; i < this.priceData[2].values.length; i++) {
+      arr.push(this.priceData[2].values[i].y)
     }
     return (arr);
   }
