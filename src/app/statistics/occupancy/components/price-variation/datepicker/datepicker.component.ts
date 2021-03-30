@@ -10,7 +10,7 @@ import {
     selector: 'date-picker',
     templateUrl: 'datepicker.component.html'
   })
-  export class DatePickerComponent implements OnInit {
+  export class DatePickerComponent {
   
     @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
   
@@ -64,25 +64,10 @@ import {
       calendarName: 'gregorian'
     };
   
-    public umalquraOptions: SohoDatePickerOptions = {
-      mode: 'standard',
-      dateFormat: 'yyyy/MM/dd',
-      showMonthYearPicker: true,
-      calendarName: 'islamic-umalqura',
-      locale: 'ar-SA'
-    };
-  
     constructor() { }
-    ngOnInit() {
-      this.registerCustomValidator();
-    }
   
     toggleModel() {
       this.showModel = !this.showModel;
-    }
-  
-    clear() {
-      this.model.standard = '';
     }
   
     onChange(event: SohoDatePickerEvent) {
@@ -105,18 +90,4 @@ import {
       this.datepickerReadOnly = (this.datepicker as any).readonly;
     }
   
-    registerCustomValidator() {
-      const customRule: any = {
-        check: (value: any, field: any, grid: any) => {
-          console.log(value, field, grid);
-          return false;
-        },
-        id: 'custom',
-        type: 'error',
-        message: 'Test Error - Anything you enter will be wrong'
-      };
-  
-      // @ts-ignore
-      Soho.Validation.rules['customRule'] = customRule;
-    }
   }
