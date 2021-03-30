@@ -1,11 +1,17 @@
 <form>
-    <div class="row top-padding"></div>
-    <div class="row">
-      <div class="four columns">
-        <div class="field">
-          <label for="standard" class="label">Standard Date</label>
-          <input soho-datepicker id="standard" name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
-        </div>
+  <div class="row">
+    <div class="four columns">
+      <div class="field">
+        <label for="validrange" class="label">Valid Range 2016</label>
+        <input soho-datepicker 
+        name="validrange" 
+        dateFormat="MM/dd/yyyy" 
+        mode="standard" 
+        placeholder="MM/dd/yyyy"
+        [disable]="disableOptions" 
+        [(ngModel)]="model.validrange" 
+        (change)="onChange($event)" />
       </div>
     </div>
-  </form>
+  </div>
+</form>
