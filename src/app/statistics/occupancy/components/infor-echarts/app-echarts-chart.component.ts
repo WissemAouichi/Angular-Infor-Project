@@ -3,9 +3,10 @@ import { L10nLocale, L10nTranslationService, L10N_LOCALE } from "angular-l10n";
 import { EChartsOption } from "echarts";
 import { SohoPopDownDirective } from "ids-enterprise-ng";
 import { setTimeout } from "timers";
-import { ChartData } from "../../types/chart/chart-data";
-import { ChartDataGloabal } from "../../types/chart/chart-data-gloabal";
+import { ChartData } from "../../models/chart-data";
+import { ChartDataGloabal } from "../../models/chart-data-gloabal";
 import { AppEchartsService } from "./app-echarts-chat.service";
+import PRICE_VARIATION from '../price-variation/Price Variation.json'
 
 @Component({
 	selector: 'echarts-price',
@@ -272,7 +273,7 @@ export class EchartsPriceComponent implements OnInit {
 	mergeOption
 
 	// Global
-	@ViewChild('chartLegend', { read: SohoPopDownDirective })
+	@ViewChild('chartLegend', { read: SohoPopDownDirective, static:true })
 	chartLegend: SohoPopDownDirective;
 	public isChartLegendOpen: boolean;
 	public currentPath: string;
@@ -285,6 +286,7 @@ export class EchartsPriceComponent implements OnInit {
 		/*setTimeout(() => {
 			this.mergeOption={ series: [{ name: "Max Price", data:this.data },{name:"Min Price", data:this.data }] }
 		}, 20000);*/
+		this.initializeChart(PRICE_VARIATION)
 	}
 
 	initializeChart(chartDataGloabal: ChartDataGloabal) {
