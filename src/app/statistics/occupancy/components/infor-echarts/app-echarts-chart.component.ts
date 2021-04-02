@@ -2,20 +2,19 @@ import { AfterViewInit, Component, Inject, OnInit, ViewChild } from "@angular/co
 import { L10nLocale, L10nTranslationService, L10N_LOCALE } from "angular-l10n";
 import { EChartsOption } from "echarts";
 import { SohoPopDownDirective } from "ids-enterprise-ng";
-import { setTimeout } from "timers";
 import { ChartData } from "../../models/chart-data";
 import { ChartDataGloabal } from "../../models/chart-data-gloabal";
 import { AppEchartsService } from "./app-echarts-chat.service";
 import PRICE_VARIATION from '../price-variation/Price Variation.json'
 
 @Component({
-	selector: 'echarts-price',
+	selector: 'echarts-infor',
 	templateUrl: './app-echarts-price-variation.component.html',
 	styleUrls: ['./app-echarts-price-variation.component.scss'],
 	providers: [AppEchartsService]
 })
 
-export class EchartsPriceComponent implements OnInit {
+export class EchartsInforPriceComponent implements OnInit {
 	public chartDataGloabal: ChartDataGloabal;
 	public displayChart: boolean=false
 	public chartData: ChartData[];

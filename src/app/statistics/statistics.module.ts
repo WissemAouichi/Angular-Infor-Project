@@ -8,6 +8,7 @@ import { ExportDataGridComponent } from './occupancy/components/data-grid-occupa
 import { EchartsHistoricalComponent } from './occupancy/components/echarts-historical-chart/echarts-historical.component';
 import { EchartsLinesComponent } from './occupancy/components/echarts-multiline/echarts-lines.component';
 import { EchartsPriceComponent } from './occupancy/components/echarts-price-variation/echarts-price-variation.component';
+import { EchartsInforPriceComponent } from './occupancy/components/infor-echarts/app-echarts-chart.component';
 import { LineChartOccupancyComponent } from './occupancy/components/line-chart-occupancy/line-chart-occupancy.component';
 import { OccupancyForecastComponent } from './occupancy/components/occupancy-forecast/occupancy-forecast.component';
 import { OccupancyIssueComponent } from './occupancy/components/occupancy-issue/occupancy-issue.component';
@@ -30,7 +31,7 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     EchartsHistoricalComponent,
     EchartsLinesComponent,
     OccupancyIssueComponent,
-    EchartsPriceComponent
+    EchartsInforPriceComponent
   ],
   imports: [
     SohoComponentsModule,
