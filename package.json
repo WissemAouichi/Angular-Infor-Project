@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.7",
     "@angular/platform-browser-dynamic": "~8.2.7",
     "@angular/router": "~8.2.7",
+    "angular-l10n": "^11.0.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "echarts": "^5.0.2",

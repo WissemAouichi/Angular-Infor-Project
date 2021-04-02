@@ -66,7 +66,7 @@ export class EchartsPriceComponent {
         type: 'line',
         smooth: false,
         showSymbol: false,
-        data: this.maplblPriceDecision()
+        data: this.priceData[0].values.map(d=>d.y)
       },
       {
         name: 'Max Price',
@@ -82,7 +82,7 @@ export class EchartsPriceComponent {
         },
         smooth: false,
         symbol: 'none',
-        data: this.maplblMaxPrice()
+        data: this.priceData[1].values.map(d=>d.y)
       },
       {
         name: 'Min Price',
@@ -91,7 +91,7 @@ export class EchartsPriceComponent {
         smooth: false,
         color:"#FFF",
         symbol: 'none',
-        data: this.maplblMinPrice(),
+        data:this.priceData[2].values.map(d=>d.y) ,
         areaStyle:{
           color:"#FFF",
           opacity:1
@@ -102,36 +102,9 @@ export class EchartsPriceComponent {
         type: 'line',
         smooth: false,
         showSymbol: false,
-        data: this.maplblCurrentPrice()
+        data: this.priceData[3].values.map(d=>d.y)
       },
     ]
   };
-  private maplblMaxPrice() {
-    let arr = [];
-    for (let i = 0; i < this.priceData[0].values.length; i++) {
-      arr.push(this.priceData[0].values[i].y)
-    }
-    return (arr);
-  }
-  private maplblMinPrice() {
-    let arr = [];
-    for (let i = 0; i < this.priceData[1].values.length; i++) {
-      arr.push(this.priceData[1].values[i].y)
-    }
-    return (arr);
-  }
-  private maplblCurrentPrice() {
-    let arr = [];
-    for (let i = 0; i < this.priceData[3].values.length; i++) {
-      arr.push(this.priceData[3].values[i].y)
-    }
-    return (arr);
-  }
-  private maplblPriceDecision() {
-    let arr = [];
-    for (let i = 0; i < this.priceData[4].values.length; i++) {
-      arr.push(this.priceData[4].values[i].y)
-    }
-    return (arr);
-  }
+
 }
