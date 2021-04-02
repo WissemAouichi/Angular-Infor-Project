@@ -29,7 +29,8 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     EchartsPriceComponent,
     EchartsHistoricalComponent,
     EchartsLinesComponent,
-    OccupancyIssueComponent
+    OccupancyIssueComponent,
+    EchartsPriceComponent
   ],
   imports: [
     SohoComponentsModule,
