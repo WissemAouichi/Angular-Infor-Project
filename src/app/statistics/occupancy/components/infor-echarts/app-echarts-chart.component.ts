@@ -277,9 +277,7 @@ export class EchartsInforPriceComponent implements OnInit {
 	public isChartLegendOpen: boolean;
 	public currentPath: string;
 
-	constructor(@Inject(L10N_LOCALE) public locale: L10nLocale,
-		private AppEchartsService: AppEchartsService, 
-		private translationService: L10nTranslationService) { }
+	constructor(private AppEchartsService: AppEchartsService) { }
 
 	ngOnInit() {
 		/*setTimeout(() => {
@@ -332,8 +330,7 @@ export class EchartsInforPriceComponent implements OnInit {
 		}],
 		series: [
 			{
-				name: this.translationService.translate(this.priceData[0].key, null,
-					this.locale.language),
+				name: this.priceData[0].key,
 				type: 'line',
 				z: 1,
 				color: '#C6C6C6',
@@ -349,8 +346,7 @@ export class EchartsInforPriceComponent implements OnInit {
 				data: []
 			},
 			{
-				name: this.translationService.translate(this.priceData[1].key, null,
-					this.locale.language),
+				name: this.priceData[1].key,
 				type: 'line',
 				z: 2,
 				smooth: false,
@@ -363,16 +359,14 @@ export class EchartsInforPriceComponent implements OnInit {
 				}
 			},
 			{
-				name: this.translationService.translate(this.priceData[2].key, null,
-					this.locale.language),
+				name: this.priceData[2].key,
 				type: 'line',
 				smooth: false,
 				showSymbol: false,
 				data: []
 			},
 			{
-				name: this.translationService.translate(this.priceData[3].key, null,
-					this.locale.language),
+				name: this.priceData[3].key,
 				type: 'line',
 				smooth: false,
 				showSymbol: false,

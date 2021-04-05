@@ -37,6 +37,7 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     SohoComponentsModule,
     CommonModule,
     FormsModule,
+    
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
