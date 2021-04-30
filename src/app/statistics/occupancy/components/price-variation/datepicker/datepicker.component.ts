@@ -8,18 +8,11 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 export class DatePickerComponent {
 
   @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
+  dateFormat = Soho.Locale.currentLocale.data.calendars[0].dateFormat.short;
 
   public model = {
     standard: '2020/01/01',
     validrange: '2020/01/01',
-    anniversary: '',
-    birthday: '',
-    year: '',
-    datetime: '',
-    datetime2: '05.04.2018 16:15',
-    range: '2020/01/01 - 2020/09/01',
-    range2: '2020/01/01 - 2020/09/01',
-    umalqura: ''
   };
   public showModel = false;
   public datepickerDisabled = false;
@@ -27,7 +20,7 @@ export class DatePickerComponent {
 
   public disableOptions: SohoDatePickerDisable = {
     minDate: '2020/01/01',
-    maxDate: '2020/31/09',
+    maxDate: '2020/31/01',
   };
 
   public datePickerOptions: SohoDatePickerOptions = {

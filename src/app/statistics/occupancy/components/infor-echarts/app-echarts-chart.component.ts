@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from "@angular/core";
-import { L10nLocale, L10nTranslationService, L10N_LOCALE } from "angular-l10n";
 import { EChartsOption } from "echarts";
 import { SohoPopDownDirective } from "ids-enterprise-ng";
 import { ChartData } from "../../models/chart-data";

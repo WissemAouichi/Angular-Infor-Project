@@ -11,7 +11,7 @@
             <div *ngIf="chartDataLine.showInStaticLegend">
                 <svg soho-icon icon="filter-is-not-empty" [ngStyle]="{ 'fill' : chartDataLine.color }"></svg>
                 <label>
-                    {{ chartDataLine.key | translate:locale.language }}
+                    {{ chartDataLine.key }}
                 </label>
             </div>
         </div>
@@ -33,7 +33,7 @@
                         <svg soho-icon icon="filter-is-not-empty" [ngStyle]="{ 'color' : chartDataLine.color }"
                             *ngIf="!chartDataLine.disabled"></svg>
                         <label>
-                            {{ chartDataLine.key | translate:locale.language }}
+                            {{ chartDataLine.key }}
                         </label>
                     </div>
                 </div>
