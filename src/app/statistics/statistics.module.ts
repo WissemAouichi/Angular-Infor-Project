@@ -17,7 +17,6 @@ import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-l
 import { DatePickerComponent } from './occupancy/components/price-variation/datepicker/datepicker.component';
 import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
-import 'echarts/i18n/langFR'
 
 @NgModule({
   declarations: [

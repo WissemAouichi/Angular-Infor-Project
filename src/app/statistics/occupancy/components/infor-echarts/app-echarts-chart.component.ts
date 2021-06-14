@@ -5,7 +5,6 @@ import { ChartData } from "../../models/chart-data";
 import { ChartDataGloabal } from "../../models/chart-data-gloabal";
 import { AppEchartsService } from "./app-echarts-chat.service";
 import PRICE_VARIATION from '../price-variation/Price Variation.json'
-import 'echarts/i18n/langFR'
 import * as echarts from 'echarts'
 
 @Component({
