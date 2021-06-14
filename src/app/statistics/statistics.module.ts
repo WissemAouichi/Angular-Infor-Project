@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { BusyIndicatorDemoBodyComponent } from './occupancy/components/busyindicator/body-sample.demo';
 import { DataGridOccupancyComponent } from './occupancy/components/data-grid-occupancy/data-grid-occupancy.component';
 import { ExportDataGridComponent } from './occupancy/components/data-grid-occupancy/export-data-grid/export-data-grid.component';
 import { EchartsHistoricalComponent } from './occupancy/components/echarts-historical-chart/echarts-historical.component';
@@ -16,9 +17,11 @@ import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-l
 import { DatePickerComponent } from './occupancy/components/price-variation/datepicker/datepicker.component';
 import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
+import 'echarts/i18n/langFR'
 
 @NgModule({
   declarations: [
+    BusyIndicatorDemoBodyComponent,
     OccupancyComponent,
     DataGridOccupancyComponent,
     LineChartOccupancyComponent,
