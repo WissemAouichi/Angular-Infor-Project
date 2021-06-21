@@ -419,7 +419,7 @@ export class EchartsInforPriceComponent implements OnInit {
 	}
 ngAfterViewInit(){
 	console.log(this.echartsdiv);
-	echarts.registerLocale('FR', this.lang);
+	 echarts.registerLocale('FR', this.lang);
 		echarts.init(this.echartsdiv.nativeElement, null, {
 			locale: 'FR'
 		});
