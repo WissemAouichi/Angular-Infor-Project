@@ -461,17 +461,24 @@ ngAfterViewInit(){
 				name: this.priceData[0].key,
 				type: 'line',
 				z: 1,
-				color: '#C6C6C6',
+				color: this.priceData[0].color,
 				stack: "yes",
 				lineStyle: {
 					width: 0,
 				},
 				areaStyle: {
-					color: '#C6C6C6',
+					color: '#CDCFD0',
 				},
 				smooth: false,
 				symbol: 'none',
-				data: []
+				data: [],
+				emphasis:{
+					focus:'none',
+					scale:false,
+					areaStyle:{
+						opacity:1
+					}
+				},
 			},
 			{
 				name: this.priceData[1].key,
@@ -482,9 +489,16 @@ ngAfterViewInit(){
 				symbol: 'none',
 				data: [],
 				areaStyle: {
-					color: "#FFF",
-					opacity: 1
-				}
+					color: '#B6B8B9',
+					// opacity: 1
+				},
+				emphasis:{
+					focus:'none',
+					scale:false,
+					areaStyle:{
+						opacity:1
+					}
+				},
 			},
 			{
 				name: this.priceData[2].key,
