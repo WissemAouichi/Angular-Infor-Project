@@ -22,7 +22,7 @@ export class DatePickerComponent {
 
   public disableOptions: SohoDatePickerDisable = {
     minDate: '2020/01/01',
-    maxDate: '2020/31/01',
+    maxDate: '2020/01/31',
   };
 
   public datePickerOptions: SohoDatePickerOptions = {
