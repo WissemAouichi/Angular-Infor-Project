@@ -3,20 +3,32 @@
     <div class="four columns">
       <div class="field">
         <label for="validrange" class="label">Valid Range 2016</label>
-        <input soho-datepicker 
-        name="validrange" 
-        dateFormat="MM/dd/yyyy" 
-        mode="standard" 
-        placeholder="dateFormat"
-        [disable]="disableOptions" 
-        [(ngModel)]="model.validrange" 
-        (change)="onChange($event)" />
+        <input
+          soho-datepicker
+          name="validrange"
+          dateFormat="MM/dd/yyyy"
+          mode="standard"
+          placeholder="dateFormat"
+          [disable]="disableOptions"
+          [(ngModel)]="model.validrange"
+          (change)="onChange($event)"
+        />
       </div>
     </div>
     <div class="four columns">
       <div class="field">
         <label for="range" class="label">Date with Range (set via mode)</label>
-        <input soho-datepicker name="range" [disable]="disableOptions" dateFormat="MM/dd/yyyy" mode="range" placeholder="MM/dd/yyyy" [(ngModel)]="model.range" (change)="onChange($event)" class="input-mm"/>
+        <input
+          soho-datepicker
+          name="range"
+          [disable]="disableOptions"
+          dateFormat="MM/dd/yyyy"
+          mode="range"
+          placeholder="MM/dd/yyyy"
+          [(ngModel)]="model.range"
+          (change)="onChange($event)"
+          class="input-mm"
+        />
       </div>
     </div>
   </div>
