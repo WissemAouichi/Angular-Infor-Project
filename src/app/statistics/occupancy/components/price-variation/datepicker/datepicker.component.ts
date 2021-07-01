@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -6,9 +6,13 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
   templateUrl: 'datepicker.component.html'
 })
 export class DatePickerComponent {
+  public innerWidth: any;
+  public displayDatepicker: boolean;
+  public dateRange
 
   @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
   dateFormat = Soho.Locale.currentLocale.data.calendars[0].dateFormat.short;
+  
 
   public model = {
     standard: '2020/01/01',
