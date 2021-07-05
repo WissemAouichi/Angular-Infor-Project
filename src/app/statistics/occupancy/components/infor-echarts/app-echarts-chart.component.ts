@@ -12,7 +12,7 @@ import { ChartData } from "../../models/chart-data";
 import { ChartDataGloabal } from "../../models/chart-data-gloabal";
 import { AppEchartsService } from "./app-echarts-chat.service";
 import PRICE_VARIATION from "../price-variation/Price Variation.json";
-import * as echarts from "echarts";
+import * as echarts from "echarts/index";
 
 @Component({
   selector: "echarts-infor",
