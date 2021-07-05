@@ -17,7 +17,7 @@ export class DatePickerComponent {
   public model = {
     standard: "2020/01/01",
     validrange: "2020/01/01",
-    range: "12/12/2016 - 12/26/2016",
+    range: "01/01/2020 - 31/01/2020",
     range2: "1/12/2017 - 1/16/2017",
   };
   public showModel = false;
@@ -27,6 +27,7 @@ export class DatePickerComponent {
   public disableOptions: SohoDatePickerDisable = {
     minDate: "2020/01/01",
     maxDate: "2020/01/31",
+    dayOfWeek:[0,1]
   };
 
   public datePickerOptions: SohoDatePickerOptions = {
