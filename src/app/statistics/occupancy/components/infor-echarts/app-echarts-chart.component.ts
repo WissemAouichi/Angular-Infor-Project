@@ -1,8 +1,6 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
-  Inject,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -652,10 +650,6 @@ export class EchartsInforPriceComponent implements OnInit {
    */
   createChartData() {
     this.chartData = Object.assign([], this.chartDataGloabal.chartData);
-    /*this.displaychartData.emit({
-		  chartData: this.chartData,
-		  chartDataGloabal: this.chartDataGloabal,
-		});*/
   }
 
   /**
