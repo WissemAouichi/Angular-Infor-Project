@@ -436,20 +436,20 @@ export class EchartsInforPriceComponent implements OnInit {
       },
     };
     this.innerWidth = window.innerWidth;
-    this.innerWidth < 768
-      ? (this.mergeOption={dataZoom:{show:false}})
-      : this.mergeOption={dataZoom:{show:true}};
     this.initializeChart(PRICE_VARIATION);
   }
-
+public showDataZoom:boolean
   initializeChart(chartDataGloabal: ChartDataGloabal) {
     // console.log(this.echartsdiv)
-
+    this.innerWidth = window.innerWidth;
+    this.innerWidth < 768 ? (this.showDataZoom=false): this.showDataZoom=true
     this.chartDataGloabal = chartDataGloabal;
     this.priceData = chartDataGloabal.chartData;
     this.datestamp = chartDataGloabal.ticks;
     this.displayChart = true;
+    this
     this.mergeOption = {
+      dataZoom:{show:this.showDataZoom},
       series: [
         { data: this.mapData(0) },
         { data: this.mapData(1) },
