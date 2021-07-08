@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -281,8 +282,10 @@ export class EchartsInforPriceComponent implements OnInit {
   public isChartLegendOpen: boolean;
   public currentPath: string;
   @ViewChild("echarts", { static: false }) echartsdiv!: ElementRef;
+  displaymobileversion: boolean;
   constructor(private AppEchartsService: AppEchartsService) {}
   public lang: any;
+  innerWidth: number;
   ngOnInit() {
     /*setTimeout(() => {
 			this.mergeOption={ series: [{ name: "Max Price", data:this.data },{name:"Min Price", data:this.data }] }
@@ -432,7 +435,10 @@ export class EchartsInforPriceComponent implements OnInit {
         },
       },
     };
-
+    this.innerWidth = window.innerWidth;
+    this.innerWidth < 768
+      ? (this.mergeOption={dataZoom:{show:false}})
+      : this.mergeOption={dataZoom:{show:true}};
     this.initializeChart(PRICE_VARIATION);
   }
 
@@ -465,10 +471,25 @@ export class EchartsInforPriceComponent implements OnInit {
       locale: "FR",
     });
   }
+  @HostListener('window:resize', ['$event'])
+  onResizeWindow(event) {
+    this.innerWidth = window.innerWidth;
+    this.innerWidth < 768
+      ? (this.mergeOption={dataZoom:{show:false}})
+      : this.mergeOption={dataZoom:{show:true}};
+  }  
   chartInitOption: EChartsOption = {
     tooltip: {
       trigger: "axis",
       backgroundColor: "rgb(0,0,0)",
+      formatter:function(params) {
+        let res = `${params[0].axisValue}：<br>`
+        for (let i in params) {
+            res += `${params[i].marker}${params[i].seriesName}：${params[i].value[1]}<br>`
+        }
+        return res;
+    }
+
     },
     toolbox: {
       feature: {
@@ -494,17 +515,13 @@ export class EchartsInforPriceComponent implements OnInit {
       min: "dataMin",
     },
     grid: { top: 8, left: "5%", right: "5%" },
-    dataZoom: [
+    dataZoom: 
       {
-        type: "inside",
+        type: "slider",
         start: 0,
         end: 10,
-      },
-      {
-        start: 0,
-        end: 10,
-      },
-    ],
+      }
+    ,
     series: [
       {
         name: this.priceData[0].key,
