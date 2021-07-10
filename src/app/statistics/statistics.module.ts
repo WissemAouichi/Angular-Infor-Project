@@ -17,17 +17,18 @@ import { PlotlyLineComponent } from './occupancy/components/plotly-line/plotly-l
 import { DatePickerComponent } from './occupancy/components/price-variation/datepicker/datepicker.component';
 import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
+import * as echarts from './echarts-custom';
 
 @NgModule({
   declarations: [
     BusyIndicatorDemoBodyComponent,
     OccupancyComponent,
-    DataGridOccupancyComponent,
-    LineChartOccupancyComponent,
-    ExportDataGridComponent,
-    PlotlyLineComponent,
-    PriceVariationComponent,
-    OccupancyForecastComponent,
+    // DataGridOccupancyComponent,
+    // LineChartOccupancyComponent,
+    // ExportDataGridComponent,
+    // PlotlyLineComponent,
+    // PriceVariationComponent,
+    // OccupancyForecastComponent,
     DatePickerComponent,
     EchartsPriceComponent,
     EchartsHistoricalComponent,
@@ -41,8 +42,8 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
     FormsModule,
     
     NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
-    })
+      echarts,
+    }),
   ]
 })
 export class StatisticsModule {
