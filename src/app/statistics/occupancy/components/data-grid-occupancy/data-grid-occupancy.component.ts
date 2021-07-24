@@ -36,7 +36,8 @@ export class DataGridOccupancyComponent {
     },
   ];
 
-  @Input() set occupancyData(occupancyData: OccupanyModel[]) {
+  @Input() 
+  set occupancyData(occupancyData: OccupanyModel[]) {
     this.data = occupancyData;
     if (this.data) {
       this.initGridData();
