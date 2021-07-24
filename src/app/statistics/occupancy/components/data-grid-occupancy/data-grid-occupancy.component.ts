@@ -44,7 +44,6 @@ export class DataGridOccupancyComponent {
     }
   };
 
-
   private initGridData(): void {
     this.gridOptions = {
       columns: this.dataGridColumns,
