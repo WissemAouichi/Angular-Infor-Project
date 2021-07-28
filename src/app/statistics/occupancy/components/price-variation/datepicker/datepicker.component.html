@@ -3,7 +3,7 @@
     <div class="four columns">
       <div class="field">
         <label for="validrange" class="label">Valid Range 2016</label>
-        <input
+        <input readonly
           soho-datepicker
           name="validrange"
           dateFormat="MM/dd/yyyy"
@@ -12,6 +12,7 @@
           [disable]="disableOptions"
           [(ngModel)]="model.validrange"
           (change)="onChange($event)"
+          (click)='myFunction()'
         />
       </div>
     </div>
@@ -27,7 +28,7 @@
           placeholder="MM/dd/yyyy"
           [(ngModel)]="model.range"
           (change)="onChange($event)"
-          class="input-mm"
+          class="input-mm" readonly
         />
       </div>
     </div>
