@@ -31,6 +31,7 @@ export class EchartsPriceComponent {
     legend: {
       data: ['Price Decision', 'Max Price', 'Min Price', 'Current Price']
   },
+  
     title: {
       left: 'left',
       text: 'Price Variation',

@@ -282,6 +282,7 @@ export class EchartsInforPriceComponent implements OnInit {
   public isChartLegendOpen: boolean;
   public currentPath: string;
   @ViewChild("echarts", { static: false }) echartsdiv!: ElementRef;
+  private zr
   displaymobileversion: boolean;
   constructor(private AppEchartsService: AppEchartsService) {}
   public lang: any;
@@ -470,6 +471,7 @@ public showDataZoom:boolean
     echarts.init(this.echartsdiv.nativeElement, null, {
       locale: "FR",
     });
+    this.zr=this.echartsdiv.nativeElement.getZr()
   }
   @HostListener('window:resize', ['$event'])
   onResizeWindow(event) {

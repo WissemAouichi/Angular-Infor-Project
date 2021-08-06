@@ -1,19 +1,22 @@
-import { Component, HostListener, OnInit, ViewChild } from "@angular/core";
+import { Component, ContentChildren, HostListener, OnInit, ViewChild, ViewChildren } from "@angular/core";
 import { SohoDatePickerComponent } from "ids-enterprise-ng";
 
 @Component({
   selector: "date-picker",
   templateUrl: "datepicker.component.html",
+  styles:['.icon {width: 100%; position: relative; top: -35px; left: 80px; align-self: end; align-items: end;' ]
 })
 export class DatePickerComponent {
   public innerWidth: any;
   public displayDatepicker: boolean;
   public dateRange;
 
-  @ViewChild(SohoDatePickerComponent, { static: true })
+  @ContentChildren(SohoDatePickerComponent)
   datepicker?: SohoDatePickerComponent;
   dateFormat = Soho.Locale.currentLocale.data.calendars[0].dateFormat.short;
-
+ngAfterViewInit(){
+  console.log('Hellllllooooo',this.datepicker)
+}
   public model = {
     standard: "2020/01/01",
     validrange: "2020/01/01",
@@ -46,6 +49,11 @@ export class DatePickerComponent {
 
   constructor() {}
 
+  myFunction(){
+    console.log('Hellllllooooo',this.datepicker);
+    (this.datepicker as any).readonly = true;
+    this.datepickerReadOnly = (this.datepicker as any).readonly;
+  }
   onChange(event: SohoDatePickerEvent) {
     console.log(
       "DatePickerDemoComponent.onChange: type=" + event.data,
