@@ -438,12 +438,7 @@ width=500
     };
     this.innerWidth = window.innerWidth;
     this.initializeChart(PRICE_VARIATION);
-    const observer = new ResizeObserver(entries => {
-      const width = entries[0].contentRect.width;
-      console.log('AHAWAAAAAAAA',width);
-    });
-
-    observer.observe(this.host.nativeElement);
+   
   }
 public showDataZoom:boolean
   initializeChart(chartDataGloabal: ChartDataGloabal) {
