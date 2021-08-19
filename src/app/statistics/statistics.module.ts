@@ -18,9 +18,11 @@ import { DatePickerComponent } from './occupancy/components/price-variation/date
 import { PriceVariationComponent } from './occupancy/components/price-variation/price-variation.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
 import * as echarts from './echarts-custom';
+import { SpinboxDemoComponent } from './occupancy/components/spinbox/spinbox.component';
 
 @NgModule({
   declarations: [
+    SpinboxDemoComponent,
     BusyIndicatorDemoBodyComponent,
     OccupancyComponent,
     // DataGridOccupancyComponent,

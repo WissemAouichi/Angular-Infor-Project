@@ -273,9 +273,9 @@ export class EchartsInforPriceComponent implements OnInit {
     },
   ];
   private datestamp = [];
-  public initOpts = { height: "300px" };
+  public initOpts = { height: "500px" };
   mergeOption;
-
+width=500
   // Global
   @ViewChild("chartLegend", { read: SohoPopDownDirective, static: true })
   chartLegend: SohoPopDownDirective;
@@ -284,7 +284,7 @@ export class EchartsInforPriceComponent implements OnInit {
   @ViewChild("echarts", { static: false }) echartsdiv!: ElementRef;
   private zr
   displaymobileversion: boolean;
-  constructor(private AppEchartsService: AppEchartsService) {}
+  constructor(private AppEchartsService: AppEchartsService, private host: ElementRef) {}
   public lang: any;
   innerWidth: number;
   ngOnInit() {
@@ -438,6 +438,12 @@ export class EchartsInforPriceComponent implements OnInit {
     };
     this.innerWidth = window.innerWidth;
     this.initializeChart(PRICE_VARIATION);
+    const observer = new ResizeObserver(entries => {
+      const width = entries[0].contentRect.width;
+      console.log('AHAWAAAAAAAA',width);
+    });
+
+    observer.observe(this.host.nativeElement);
   }
 public showDataZoom:boolean
   initializeChart(chartDataGloabal: ChartDataGloabal) {
@@ -470,6 +476,7 @@ public showDataZoom:boolean
     echarts.registerLocale("FR", this.lang);
     echarts.init(this.echartsdiv.nativeElement, null, {
       locale: "FR",
+      height:100
     });
     this.zr=this.echartsdiv.nativeElement.getZr()
   }
