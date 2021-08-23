@@ -19,9 +19,13 @@ import { PriceVariationComponent } from './occupancy/components/price-variation/
 import { OccupancyComponent } from './occupancy/occupancy.component';
 import * as echarts from './echarts-custom';
 import { SpinboxDemoComponent } from './occupancy/components/spinbox/spinbox.component';
+import { TabsBasicDemoComponent } from './occupancy/components/tabs/tabs.component';
+import { TabsDataDrivenDemoComponent } from './occupancy/components/tabs-list/tabs-list.component';
 
 @NgModule({
   declarations: [
+    TabsDataDrivenDemoComponent,
+    TabsBasicDemoComponent,
     SpinboxDemoComponent,
     BusyIndicatorDemoBodyComponent,
     OccupancyComponent,
