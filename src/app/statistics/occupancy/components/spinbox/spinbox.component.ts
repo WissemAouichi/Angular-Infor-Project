@@ -44,5 +44,13 @@ export class SpinboxDemoComponent {
       (this.spinbox as any).value = 80;
     }
   }
-
+public abc=true
+myFunction(){
+  this.abc=!this.abc
+}
+func(){
+  if (this.abc == true)
+  return blur();
+  else null
+}
 }
