@@ -471,7 +471,7 @@ public showDataZoom:boolean
     echarts.registerLocale("FR", this.lang);
     echarts.init(this.echartsdiv.nativeElement, null, {
       locale: "FR",
-      height:100
+      height:400
     });
     this.zr=this.echartsdiv.nativeElement.getZr()
   }
