@@ -1,10 +1,19 @@
-import { Component, ContentChildren, HostListener, OnInit, ViewChild, ViewChildren } from "@angular/core";
+import {
+  Component,
+  ContentChildren,
+  HostListener,
+  OnInit,
+  ViewChild,
+  ViewChildren,
+} from "@angular/core";
 import { SohoDatePickerComponent } from "ids-enterprise-ng";
 
 @Component({
   selector: "date-picker",
   templateUrl: "datepicker.component.html",
-  styles:['.icon {width: 100%; position: relative; top: -35px; left: 80px; align-self: end; align-items: end;' ]
+  styles: [
+    ".icon {width: 100%; position: relative; top: -35px; left: 80px; align-self: end; align-items: end;",
+  ],
 })
 export class DatePickerComponent {
   public innerWidth: any;
@@ -13,24 +22,24 @@ export class DatePickerComponent {
 
   @ContentChildren(SohoDatePickerComponent)
   datepicker?: SohoDatePickerComponent;
-  dateFormat = Soho.Locale.currentLocale.data.calendars[0].dateFormat.short;
-ngAfterViewInit(){
-  console.log('Hellllllooooo',this.datepicker)
-}
+
+  public dateFormat = 'yyyy/MM/dd';
+  ngAfterViewInit() {
+    console.log("Hellllllooooo", this.datepicker);
+  }
   public model = {
     standard: "2020/01/01",
     validrange: "2020/01/01",
-    range: "01/01/2020 - 31/01/2020",
+    range: "2020/01/01 - 2020/31/01",
     range2: "1/12/2017 - 1/16/2017",
   };
   public showModel = false;
   public datepickerDisabled = false;
   public datepickerReadOnly = false;
-
   public disableOptions: SohoDatePickerDisable = {
     minDate: "2020/01/01",
-    maxDate: "2020/01/31",
-    dayOfWeek:[0,1]
+    maxDate: "2020/04/30",
+    dayOfWeek: [0, 1],
   };
 
   public datePickerOptions: SohoDatePickerOptions = {
@@ -39,7 +48,7 @@ ngAfterViewInit(){
     minuteInterval: 10,
     secondInterval: 10,
     roundToInterval: true,
-    dateFormat: "yyyy/dd/mm",
+    dateFormat: "yyyy/mm/dd",
     placeholder: "placeholder",
     showLegend: true,
     showMonthYearPicker: true,
@@ -47,10 +56,10 @@ ngAfterViewInit(){
     calendarName: "gregorian",
   };
 
-  constructor() {}
+  constructor() { }
 
-  myFunction(){
-    console.log('Hellllllooooo',this.datepicker);
+  myFunction() {
+    console.log("Hellllllooooo", this.datepicker);
     (this.datepicker as any).readonly = true;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
