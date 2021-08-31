@@ -1,0 +1,205 @@
+<div soho-widget>
+  <div soho-widget-header class="personalized-title">
+    <div class="row">
+      <div class="twelve columns">
+        <div soho-widget-title>
+          <h2>Booking Changes</h2>
+        </div>
+      </div>
+    </div>
+    <button
+      soho-button="icon"
+      icon="more"
+      soho-context-menu
+      menu="chart-popupmenu"
+      trigger="click"
+      class="btn-actions"
+    ></button>
+    <ul soho-popupmenu id="chart-popupmenu">
+      <li soho-popupmenu-item>
+        <a soho-popupmenu-label>
+          <svg soho-icon icon="tree-csv"></svg> Export CSV
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div soho-widget-content style="height: 100%">
+    <div class="row">
+      <div class="p-col form-group inline-form">
+        <div class="p-col-auto">
+          <div class="p-grid">
+            <div class="three columns mr-5">
+              <label class="control-label">Analyse Type</label>
+              <select
+                style="min-width: 135px"
+                placeholder="select analyse type"
+                soho-dropdown
+                [closeOnSelect]="true"
+                [(ngModel)]="selectedDropdownFilter1"
+              >
+                <option>On The Books</option>
+              </select>
+              <!-- Selects goes in here -->
+            </div>
+            <div class="p-col-auto">
+              <label class="control-label">Dimension</label>
+            </div>
+            <form
+              class="p-col-auto"
+              [formGroup]="optionForm"
+              (ngSubmit)="saveOption(optionForm.value)"
+              style="display: flex"
+              autocomplete="off"
+            >
+              <div class="form-group p-col">
+                <select
+                  formControlName="dimension"
+                  class="form-control"
+                  style="min-width: 135px"
+                  placeholder="select dimension"
+                  soho-dropdown
+                  [closeOnSelect]="true"
+                >
+                  <option value="empty"></option>
+                  <option value="buckets">Buckets</option>
+                  <option value="market">Market Segment</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                class="btn-primary small-btn"
+                (click)="onApply()"
+              >
+                <svg
+                  role="presentation"
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon"
+                >
+                  <use href="#icon-filter"></use>
+                </svg>
+                <span>Apply</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div soho-busyindicator [blockUI]="true" [displayDelay]="0" [text]="'lblLoading' | translate:lang"> -->
+    <!-- <div class="p-grid" style="height: calc(100% - 106px); min-height: 250px;">
+                <div class="p-col">
+                    <div id="bookingChart" style="width: 100%; height: 100%; display:block "></div>
+                </div>
+                <div class="p-col-2 progress-bar-section">
+                    <div class="progress-bar-box p-grid p-align-center" *ngFor="let categoryTotal of totalPerCategory">
+                        <div class="p-col-10 p-col-align-center">
+                            <p class="title-box">
+                                {{categoryTotal.text}}
+                            </p>
+                        </div>
+                        <div class="p-col-2 p-col-align-center text-right">
+                            <p class="title-box">{{categoryTotal.total}}</p>
+                        </div>
+                        <div class="p-col-12">
+                            <div class="percentbar">
+                                <div class="current-progress" [style.background]="categoryTotal.color"
+                                    style.width="{{categoryTotal.pct}}%"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-box p-grid p-align-center p-justify-around">
+                        <div class="p-col-10 p-col-align-center">
+                            <p class="title-box">Total </p>
+                        </div>
+                        <div class="p-col-2 p-col-align-center text-right">
+                            <p class="title-box">{{totalAsDouble}}</p>
+                        </div>
+                        <div class="p-col-12">
+                            <div class="percentbar">
+                                <div class="current-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-box p-grid p-align-center p-justify-around">
+                        <div class="p-col-10 p-col-align-center">
+                            <p class="title-box">Average</p>
+                        </div>
+                        <div class="p-col-2 p-col-align-center text-right">
+                            <p class="title-box">{{averageAsDouble}}</p>
+                        </div>
+                        <div class="p-col-12">
+                            <div class="percentbar">
+                                <div class="current-progress" style.width="{{averageAsDouble/totalAsDouble * 100}}%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+    <div class="p-grid" style="height: 100%; min-height: 250px">
+      <div class="p-col">
+        <div
+          id="bookingChart"
+          style="width: 1050px; height: 100%; display: block"
+        >
+          <div
+            echarts
+            [initOpts]="initOpts"
+            [options]="chartInitOption"
+            [merge]="mergeOption"
+            [autoResize]="true"
+          ></div>
+        </div>
+      </div>
+      <div class="p-col-2 progress-bar-section">
+        <div class="progress-bar-section">
+          <div
+            class="progress-bar-box p-grid p-align-center"
+            *ngFor="let key of dataKeys; let i = index"
+          >
+            <div class="row">
+              <div class="twelve columns">
+                <label id="pr-label1">{{ key }}</label>
+                <div class="p-col-align-center text-right" style="float: right">
+                  <p class="title-box">{{ keysTotal[i] }}</p>
+                </div>
+                <soho-progress
+                  [progressValue]="keysProgress[i]"
+                  style="margin: 10px 0"
+                ></soho-progress>
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar-box p-grid p-align-center p-justify-around">
+            <div class="row">
+              <div class="twelve columns">
+                <label id="pr-label1">Total</label>
+                <div class="p-col-align-center text-right" style="float: right">
+                  <p class="title-box">{{ totalAsDouble }}</p>
+                </div>
+                <soho-progress
+                  [progressValue]="totalAsDoubleProgress"
+                  style="margin: 10px 0"
+                ></soho-progress>
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar-box p-grid p-align-center p-justify-around">
+            <div class="row">
+              <div class="twelve columns">
+                <label id="pr-label1">Average</label>
+                <div class="p-col-align-center text-right" style="float: right">
+                  <p class="title-box">14.7</p>
+                </div>
+                <soho-progress
+                  [progressValue]="averageAsDoubleProgress"
+                  style="margin: 10px 0"
+                ></soho-progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
