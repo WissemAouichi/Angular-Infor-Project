@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { EChartsOption } from "echarts";
 import { SohoBusyIndicatorDirective } from "ids-enterprise-ng";
+import * as moment from "moment";
 import { ReportsService } from "./reports.service";
 
 @Component({
@@ -146,6 +147,54 @@ export class ReportsComponent {
           // }
         },
       },
+      {
+        id: "weeks",
+        position: "bottom",
+        offset: 60,
+        data: [],
+        //   interval: 1,
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          alignWithLabel: false,
+          length: 40
+        },
+        axisLabel: {
+          interval: 7,
+          align: 'center'
+        },
+        splitLine: {
+          show: true,
+          // interval: function(index, value) {
+          //   return value ? true : false;
+          // }
+        },
+      },
+      {
+        id: "months",
+        position: "bottom",
+        offset: 90,
+        data: [],
+        //   interval: 1,
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          alignWithLabel: false,
+          length: 40
+        },
+        axisLabel: {
+          interval: 30,
+          align: 'center'
+        },
+        splitLine: {
+          show: true,
+          // interval: function(index, value) {
+          //   return value ? true : false;
+          // }
+        },
+      }
     ],
     yAxis: [
       {
@@ -315,6 +364,18 @@ export class ReportsComponent {
             return new Date(day.date).getDay();
           }),
         },
+        {
+          id: "weeks",
+          data: this.globalData.data[0].days.map((day) => {
+            return moment(day.date).week();
+          }),
+        },
+        {
+          id: "months",
+          data: this.globalData.data[0].days.map((day) => {
+            return moment(day.date).month()+1
+          }),
+        }
       ],
       series: [
         {
