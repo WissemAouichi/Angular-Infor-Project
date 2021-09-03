@@ -22,7 +22,7 @@ export class ReportsComponent {
   public dataMarket;
   public globalData;
   //Chart variables
-  public initOpts;
+  public initOpts={height:"500px"};
   public mergeOption;
   public weekDays=["S","M","T","W","T","F","S"]
   public monthNames = ["January", "February", "March", "April", "May", "June",
@@ -119,6 +119,7 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
+      top:450,
       start: 0,
       end:30
     },
@@ -136,7 +137,7 @@ export class ReportsComponent {
         data: [],
         //   interval: 1,
         axisLine: {
-          show: false,
+          show: true,
         },
         axisTick: {
           alignWithLabel: false,
@@ -165,11 +166,10 @@ export class ReportsComponent {
       {
         id: "weeks",
         position: "bottom",
-        offset: 30,
+        offset: 40,
         data: [],
-        //   interval: 1,
         axisLine: {
-          show: false,
+          show: true,
         },
         axisTick: {
           alignWithLabel: false,
@@ -177,8 +177,14 @@ export class ReportsComponent {
         },
         axisLabel: {
           interval: 7,
-          align: 'center',
-          lineHeight: 46
+          align: 'left',
+          lineHeight: 46,
+          verticalAlign:'top',
+          // rich:{
+          //   a:{
+          //     verticalAlign:'middle'
+          //   }
+          // }
         },
         splitLine: {
           show: true,
@@ -190,7 +196,7 @@ export class ReportsComponent {
       {
         id: "months",
         position: "bottom",
-        offset: 70,
+        offset: 80,
         data: [],
         //   interval: 1,
         axisLine: {
