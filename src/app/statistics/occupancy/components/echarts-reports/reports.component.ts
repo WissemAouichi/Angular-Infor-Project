@@ -24,6 +24,10 @@ export class ReportsComponent {
   //Chart variables
   public initOpts;
   public mergeOption;
+  public weekDays=["S","M","T","W","T","F","S"]
+  public monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
   private seasonLevels = {
     high: {
       itemStyle: {
@@ -114,17 +118,21 @@ export class ReportsComponent {
       bottom: "15%",
       containLabel: true,
     },
-    dataZoom: {},
+    dataZoom: {
+      start: 0,
+      end:30
+    },
     xAxis: [
       {
         id: "axe1",
         type: "category",
+        show:false,
         data: [],
       },
       {
         id: "axe2",
         position: "bottom",
-        offset: 30,
+        offset: 0,
         data: [],
         //   interval: 1,
         axisLine: {
@@ -135,22 +143,29 @@ export class ReportsComponent {
           length: 40,
         },
         axisLabel: {
+          height:50,
           interval: 0,
           color: function (value, index) {
-            return value < 6 && value > 0 ? "green" : "red";
+            return value.includes("S") ? "red" : "green";
           },
+          formatter: function(params,index){
+            return params.split('/').join("\n")
+          }
         },
         splitLine: {
           show: true,
           // interval: function(index, value) {
           //   return value ? true : false;
-          // }
+          // },
+          lineStyle:{
+            join:'miter',
+            miterLimit: 5}
         },
       },
       {
         id: "weeks",
         position: "bottom",
-        offset: 60,
+        offset: 30,
         data: [],
         //   interval: 1,
         axisLine: {
@@ -162,7 +177,8 @@ export class ReportsComponent {
         },
         axisLabel: {
           interval: 7,
-          align: 'center'
+          align: 'center',
+          lineHeight: 46
         },
         splitLine: {
           show: true,
@@ -174,11 +190,11 @@ export class ReportsComponent {
       {
         id: "months",
         position: "bottom",
-        offset: 90,
+        offset: 70,
         data: [],
         //   interval: 1,
         axisLine: {
-          show: false,
+          show: true,
         },
         axisTick: {
           alignWithLabel: false,
@@ -186,7 +202,8 @@ export class ReportsComponent {
         },
         axisLabel: {
           interval: 30,
-          align: 'center'
+          align: 'left',
+          lineHeight: 30
         },
         splitLine: {
           show: true,
@@ -361,7 +378,7 @@ export class ReportsComponent {
         {
           id: "axe2",
           data: this.globalData.data[0].days.map((day) => {
-            return new Date(day.date).getDay();
+            return this.weekDays[new Date(day.date).getDay()]+'/'+new Date(day.date).getDate();
           }),
         },
         {
@@ -373,7 +390,7 @@ export class ReportsComponent {
         {
           id: "months",
           data: this.globalData.data[0].days.map((day) => {
-            return moment(day.date).month()+1
+            return this.monthNames[moment(day.date).month()+1]+new Date(day.date).getFullYear()
           }),
         }
       ],
@@ -457,7 +474,48 @@ export class ReportsComponent {
     this.totalPerKey(this.dataKeys);
     console.log("the keysProgress array", this.keysProgress);
   }
-
+  /**
+   * Chart Datazoom Event
+   */
+   onChartEvent(event: any, type: string) {
+    console.log('chart event:', type, event, event.end);
+    // let minMaxDate = {
+    //   minDate: this.dateService.getDateFromLongDate(
+    //     this.datestamp[
+    //       Math.round((event.start * (this.datestamp.length - 1)) / 100)
+    //     ]
+    //   ),
+    //   maxDate: this.dateService.getDateFromLongDate(
+    //     this.datestamp[
+    //       Math.round((event.end * (this.datestamp.length - 1)) / 100)
+    //     ]
+    //   )
+    // };
+    // if (
+    //   Math.round((event.end * (this.datestamp.length - 1)) / 100) -
+    //     Math.round((event.start * (this.datestamp.length - 1)) / 100) <
+    //   4
+    // ) {
+    //   this.showSymbol = true;
+    //   this.mergeOption = {
+    //     xAxis: {
+    //       axisLabel: { showMinLabel: false, showMaxLabel: false },
+    //       splitNumber: 1
+    //     },
+    //     series: this.showSymbolOnResize()
+    //   };
+    // } else {
+    //   this.showSymbol = false;
+    //   this.mergeOption = {
+    //     xAxis: {
+    //       axisLabel: { showMinLabel: true, showMaxLabel: true },
+    //       splitNumber: 3
+    //     },
+    //     series: this.showSymbolOnResize()
+    //   };
+    // }
+    // this.changeFocusDataChartEvent.emit(minMaxDate);
+  }
   /**
    *
    * @returns The keys of subvalues in the selected data

@@ -148,6 +148,7 @@
             [options]="chartInitOption"
             [merge]="mergeOption"
             [autoResize]="true"
+            (chartDataZoom)="onChartEvent($event, 'chartDataZoom')"
           ></div>
         </div>
       </div>
