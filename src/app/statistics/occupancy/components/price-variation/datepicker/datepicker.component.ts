@@ -5,15 +5,15 @@ import {
   OnInit,
   ViewChild,
   ViewChildren,
+  ViewEncapsulation,
 } from "@angular/core";
 import { SohoDatePickerComponent } from "ids-enterprise-ng";
 
 @Component({
   selector: "date-picker",
   templateUrl: "datepicker.component.html",
-  styles: [
-    ".icon {width: 100%; position: relative; top: -35px; left: 80px; align-self: end; align-items: end;",
-  ],
+  styleUrls:['datepicker.component.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class DatePickerComponent {
   public innerWidth: any;
@@ -24,6 +24,7 @@ export class DatePickerComponent {
   datepicker?: SohoDatePickerComponent;
 
   public dateFormat = 'yyyy/MM/dd';
+  displayButtons: boolean=false;
   ngAfterViewInit() {
     console.log("Hellllllooooo", this.datepicker);
   }
@@ -96,4 +97,11 @@ export class DatePickerComponent {
      this.datepickerReadOnly = (this.datepicker as any).readonly;
    }
  */
+displayButton(){
+  this.displayButtons=!this.displayButtons
+}
+// @HostListener('click', ['$event.target.id']) onClick(id: any) {
+//   console.log('Ahawaaaa', event);
+//   this.displayButtons=!this.displayButtons
+// }
 }

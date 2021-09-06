@@ -1,24 +1,9 @@
 <form>
-  <div class="row">
-    <div class="four columns">
-      <div class="field">
-        <label for="validrange" class="label">Valid Range 2016</label>
-        <input readonly
-          soho-datepicker
-          name="validrange"
-          dateFormat="MM/dd/yyyy"
-          mode="standard"
-          placeholder="dateFormat"
-          [disable]="disableOptions"
-          [(ngModel)]="model.validrange"
-          (change)="onChange($event)"
-          (click)='myFunction()'
-        />
-      </div>
-    </div>
+  <div class="row" style="padding: 10 0 0 0; margin: 0 0">
     <div class="four columns">
       <div class="field">
         <label for="range" class="label">Date with Range (set via mode)</label>
+        <ng-container [ngTemplateOutlet]="Buttons"></ng-container>
         <input
           soho-datepicker
           name="range"
@@ -28,9 +13,64 @@
           placeholder="yyyy/MM/dd"
           [(ngModel)]="model.range"
           (change)="onChange($event)"
-          class="input-mm" readonly
+          class="input-mm"
+          readonly
+          (click)="displayButton()"
         />
       </div>
     </div>
   </div>
 </form>
+<ng-template #Buttons>
+  <div *ngIf="displayButtons" class="Buttons">
+    <span class="label">Breakdown</span>
+    <div class="row">
+      <div class="twelve columns">
+        <button class="btn-primary" type="button" id="primary-action-two">
+          Day
+        </button>
+        <button
+          class="btn-primary"
+          type="button"
+          id="primary-action-three"
+          disabled
+        >
+          Week
+        </button>
+        <button
+          class="btn-primary"
+          type="button"
+          id="primary-action-three"
+          disabled
+        >
+          Month
+        </button>
+      </div>
+    </div>
+    <br>
+    <span class="label">Quick Selections</span>
+    <div class="row">
+      <div class="twelve columns">
+        <button class="btn-primary" type="button" id="primary-action-two">
+          Month
+        </button>
+        <button
+          class="btn-primary"
+          type="button"
+          id="primary-action-three"
+          disabled
+        >
+          3 Months
+        </button>
+        <button
+          class="btn-primary"
+          type="button"
+          id="primary-action-three"
+          disabled
+        >
+          12Months
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

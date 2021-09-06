@@ -510,6 +510,7 @@ public showDataZoom:boolean
     },
     {
       type: "time",
+      id:"Axe2",
       boundaryGap: false,
       position:'bottom',
       offset:30
@@ -554,6 +555,7 @@ public showDataZoom:boolean
         name: this.priceData[1].key,
         type: "line",
         z: 2,
+        xAxisId:"Axe2",
         smooth: false,
         color: "#FFF",
         symbol: "none",

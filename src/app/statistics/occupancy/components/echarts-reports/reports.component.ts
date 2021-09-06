@@ -126,9 +126,12 @@ export class ReportsComponent {
     xAxis: [
       {
         id: "axe1",
-        type: "category",
+        type: "time",
         show:false,
-        data: [],
+        interval:10,
+        axisLabel:{
+          formatter:'{MMM} {yyyy}'
+        }
       },
       {
         id: "axe2",
@@ -147,14 +150,15 @@ export class ReportsComponent {
           height:50,
           interval: 0,
           color: function (value, index) {
-            return value.includes("S") ? "red" : "green";
+            return value.toString().includes("S") ? "red" : "green";
           },
           formatter: function(params,index){
             return params.split('/').join("\n")
-          }
+          },
+
         },
         splitLine: {
-          show: true,
+          show: false,
           // interval: function(index, value) {
           //   return value ? true : false;
           // },
@@ -176,18 +180,13 @@ export class ReportsComponent {
           length: 40
         },
         axisLabel: {
-          interval: 7,
+          interval: 6,
           align: 'left',
           lineHeight: 46,
-          verticalAlign:'top',
-          // rich:{
-          //   a:{
-          //     verticalAlign:'middle'
-          //   }
-          // }
+          verticalAlign:'top'
         },
         splitLine: {
-          show: true,
+          show: false,
           // interval: function(index, value) {
           //   return value ? true : false;
           // }
@@ -212,7 +211,7 @@ export class ReportsComponent {
           lineHeight: 30
         },
         splitLine: {
-          show: true,
+          show: false,
           // interval: function(index, value) {
           //   return value ? true : false;
           // }
@@ -234,6 +233,7 @@ export class ReportsComponent {
           focus: "none",
         },
         data: [],
+        xAxisIndex:1,
         markLine: {
           silent: true,
           lineStyle: {
@@ -250,6 +250,7 @@ export class ReportsComponent {
         name: "Guaranteed",
         type: "bar",
         stack: "1",
+        xAxisIndex:1,
         emphasis: {
           focus: "none",
         },
@@ -259,6 +260,7 @@ export class ReportsComponent {
         name: "Option",
         type: "bar",
         stack: "1",
+        xAxisIndex:1,
         emphasis: {
           focus: "none",
         },
@@ -268,6 +270,7 @@ export class ReportsComponent {
         name: "Tentative",
         type: "bar",
         stack: "1",
+        xAxisIndex:1,
         emphasis: {
           focus: "none",
         },
@@ -277,6 +280,7 @@ export class ReportsComponent {
         name: "Unguaranteed",
         type: "bar",
         stack: "1",
+        xAxisIndex:1,
         data: [],
         emphasis: {
           focus: "none",
@@ -287,6 +291,7 @@ export class ReportsComponent {
         type: "bar",
         barWidth: 5,
         stack: "1",
+        xAxisIndex:1,
         emphasis: {
           focus: "none",
         },
@@ -296,6 +301,7 @@ export class ReportsComponent {
         name: "Capacity",
         type: "line",
         smooth: 0.5,
+        xAxisIndex:1,
         symbol: "none",
         data: [
           143, 143, 149, 152, 155, 145, 150, 144, 147, 154, 153, 141, 143, 142,
@@ -334,6 +340,7 @@ export class ReportsComponent {
         type: "line",
         smooth: 0.5,
         symbol: "none",
+        xAxisIndex:1,
         data: [],
         markArea: {
           itemStyle: {
@@ -352,6 +359,13 @@ export class ReportsComponent {
           ],
         },
       },
+      {
+        name:"hidden",
+        type:'line',
+        xAxisId:"axe1",
+        symbol:'none',
+        data:[]
+      }
     ],
   };
   // SideBar
@@ -359,7 +373,7 @@ export class ReportsComponent {
   public dataKeys;
   public keysProgress = [];
   public keysTotal = [];
-
+  public timeAxisData=[]
   constructor(private dataService: ReportsService) {}
   ngOnInit() {
     this.dimension = new FormControl("");
@@ -371,15 +385,14 @@ export class ReportsComponent {
     this.subValuesKeys();
     this.totalAsDouble = this.globalData.data[0].totalAsDouble;
     this.seasonArea();
+    this.timeAxisData.push( this.globalData.data[0].days.map((day) => {return [new Date(day.date),null]}))
+    console.log("timeAXISDATAAA",this.timeAxisData);
     console.log("subValues keys", this.subValuesKeys());
     console.log("The init data", this.globalData);
     this.mergeOption = {
       xAxis: [
         {
           id: "axe1",
-          data: this.globalData.data[0].days.map((day) => {
-            return day.date;
-          }),
         },
         {
           id: "axe2",
@@ -475,6 +488,10 @@ export class ReportsComponent {
             ],
           },
         },
+        {
+          name:"hidden",
+          data:this.timeAxisData[0],
+        }
       ],
     };
     this.totalPerKey(this.dataKeys);
