@@ -486,13 +486,13 @@ public showDataZoom:boolean
     tooltip: {
       trigger: "axis",
       backgroundColor: "rgb(0,0,0)",
-      formatter:function(params) {
-        let res = `${params[0].axisValue}：<br>`
-        for (let i in params) {
-            res += `${params[i].marker}${params[i].seriesName}：${params[i].value[1]}<br>`
-        }
-        return res;
-    }
+    //   formatter:function(params) {
+    //     let res = `${params[0].axisValue}：<br>`
+    //     for (let i in params) {
+    //         res += `${params[i].marker}${params[i].seriesName}：${params[i].value[1]}<br>`
+    //     }
+    //     return res;
+    // }
 
     },
     toolbox: {
@@ -506,7 +506,14 @@ public showDataZoom:boolean
     },
     xAxis: [{
       type: "time",
-      boundaryGap: false,
+      boundaryGap: true,
+      axisLabel: {
+        showMinLabel: true,
+        showMaxLabel: true,
+        formatter: '{MMM} {d}',
+        fontSize: 12,
+        fontFamily: 'Helvetica'
+      },
     },
     {
       type: "time",
