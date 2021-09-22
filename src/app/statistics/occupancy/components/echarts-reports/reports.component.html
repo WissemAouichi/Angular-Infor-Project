@@ -140,7 +140,7 @@
       <div class="p-col">
         <div
           id="bookingChart"
-          style="width: 1050px; height: 100%; display: block"
+          style="width: 100%; height: calc(100% - 310px ); display: block"
         >
           <div
             echarts
@@ -160,9 +160,9 @@
           >
             <div class="row">
               <div class="twelve columns">
-                <label id="pr-label1">{{ key }}</label>
-                <div class="p-col-align-center text-right" style="float: right">
-                  <p class="title-box">{{ keysTotal[i] }}</p>
+                <label id="pr-label1" onclick="alert('click!')">{{ key }}</label>
+                <div class="p-col-align-center text-right" style="float: right" >
+                  <p class="title-box" >{{ keysTotal[i] }}</p>
                 </div>
                 <soho-progress
                   [progressValue]="keysProgress[i]"

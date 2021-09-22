@@ -22,12 +22,23 @@ export class ReportsComponent {
   public dataMarket;
   public globalData;
   //Chart variables
-  public initOpts={height:"500px"};
+  public initOpts = { height: "500px", renderer: 'svg' };
   public mergeOption;
-  public weekDays=["S","M","T","W","T","F","S"]
-  public monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+  public weekDays = ["S", "M", "T", "W", "T", "F", "S"];
+  public monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   private seasonLevels = {
     high: {
       itemStyle: {
@@ -119,19 +130,19 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
-      top:450,
+      top: 450,
       start: 0,
-      end:30
+      end: 30,
     },
     xAxis: [
       {
         id: "axe1",
         type: "time",
-        show:false,
-        interval:10,
-        axisLabel:{
-          formatter:'{MMM} {yyyy}'
-        }
+        show: false,
+        interval: 10,
+        axisLabel: {
+          formatter: "{MMM} {yyyy}",
+        },
       },
       {
         id: "axe2",
@@ -147,24 +158,24 @@ export class ReportsComponent {
           length: 40,
         },
         axisLabel: {
-          height:50,
+          height: 50,
           interval: 0,
           color: function (value, index) {
             return value.toString().includes("S") ? "red" : "green";
           },
-          formatter: function(params,index){
-            return params.split('/').join("\n")
+          formatter: function (params, index) {
+            return params.split("/").join("\n");
           },
-
         },
         splitLine: {
           show: false,
           // interval: function(index, value) {
           //   return value ? true : false;
           // },
-          lineStyle:{
-            join:'miter',
-            miterLimit: 5}
+          lineStyle: {
+            join: "miter",
+            miterLimit: 5,
+          },
         },
       },
       {
@@ -177,13 +188,13 @@ export class ReportsComponent {
         },
         axisTick: {
           alignWithLabel: false,
-          length: 40
+          length: 40,
         },
         axisLabel: {
           interval: 6,
-          align: 'left',
+          align: "left",
           lineHeight: 46,
-          verticalAlign:'top'
+          verticalAlign: "top",
         },
         splitLine: {
           show: false,
@@ -203,12 +214,12 @@ export class ReportsComponent {
         },
         axisTick: {
           alignWithLabel: false,
-          length: 40
+          length: 40,
         },
         axisLabel: {
           interval: 30,
-          align: 'left',
-          lineHeight: 30
+          align: "left",
+          lineHeight: 30,
         },
         splitLine: {
           show: false,
@@ -216,7 +227,7 @@ export class ReportsComponent {
           //   return value ? true : false;
           // }
         },
-      }
+      },
     ],
     yAxis: [
       {
@@ -233,7 +244,7 @@ export class ReportsComponent {
           focus: "none",
         },
         data: [],
-        xAxisIndex:1,
+        xAxisIndex: 1,
         markLine: {
           silent: true,
           lineStyle: {
@@ -250,7 +261,7 @@ export class ReportsComponent {
         name: "Guaranteed",
         type: "bar",
         stack: "1",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         emphasis: {
           focus: "none",
         },
@@ -260,7 +271,7 @@ export class ReportsComponent {
         name: "Option",
         type: "bar",
         stack: "1",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         emphasis: {
           focus: "none",
         },
@@ -270,7 +281,7 @@ export class ReportsComponent {
         name: "Tentative",
         type: "bar",
         stack: "1",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         emphasis: {
           focus: "none",
         },
@@ -280,7 +291,7 @@ export class ReportsComponent {
         name: "Unguaranteed",
         type: "bar",
         stack: "1",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         data: [],
         emphasis: {
           focus: "none",
@@ -291,7 +302,7 @@ export class ReportsComponent {
         type: "bar",
         barWidth: 5,
         stack: "1",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         emphasis: {
           focus: "none",
         },
@@ -301,7 +312,7 @@ export class ReportsComponent {
         name: "Capacity",
         type: "line",
         smooth: 0.5,
-        xAxisIndex:1,
+        xAxisIndex: 1,
         symbol: "none",
         data: [
           143, 143, 149, 152, 155, 145, 150, 144, 147, 154, 153, 141, 143, 142,
@@ -340,7 +351,7 @@ export class ReportsComponent {
         type: "line",
         smooth: 0.5,
         symbol: "none",
-        xAxisIndex:1,
+        xAxisIndex: 1,
         data: [],
         markArea: {
           itemStyle: {
@@ -360,12 +371,12 @@ export class ReportsComponent {
         },
       },
       {
-        name:"hidden",
-        type:'line',
-        xAxisId:"axe1",
-        symbol:'none',
-        data:[]
-      }
+        name: "hidden",
+        type: "line",
+        xAxisId: "axe1",
+        symbol: "none",
+        data: [],
+      },
     ],
   };
   // SideBar
@@ -373,7 +384,7 @@ export class ReportsComponent {
   public dataKeys;
   public keysProgress = [];
   public keysTotal = [];
-  public timeAxisData=[]
+  public timeAxisData = [];
   constructor(private dataService: ReportsService) {}
   ngOnInit() {
     this.dimension = new FormControl("");
@@ -385,8 +396,12 @@ export class ReportsComponent {
     this.subValuesKeys();
     this.totalAsDouble = this.globalData.data[0].totalAsDouble;
     this.seasonArea();
-    this.timeAxisData.push( this.globalData.data[0].days.map((day) => {return [new Date(day.date),null]}))
-    console.log("timeAXISDATAAA",this.timeAxisData);
+    this.timeAxisData.push(
+      this.globalData.data[0].days.map((day) => {
+        return [new Date(day.date), null];
+      })
+    );
+    console.log("timeAXISDATAAA", this.timeAxisData);
     console.log("subValues keys", this.subValuesKeys());
     console.log("The init data", this.globalData);
     this.mergeOption = {
@@ -397,7 +412,11 @@ export class ReportsComponent {
         {
           id: "axe2",
           data: this.globalData.data[0].days.map((day) => {
-            return this.weekDays[new Date(day.date).getDay()]+'/'+new Date(day.date).getDate();
+            return (
+              this.weekDays[new Date(day.date).getDay()] +
+              "/" +
+              new Date(day.date).getDate()
+            );
           }),
         },
         {
@@ -409,9 +428,12 @@ export class ReportsComponent {
         {
           id: "months",
           data: this.globalData.data[0].days.map((day) => {
-            return this.monthNames[moment(day.date).month()+1]+new Date(day.date).getFullYear()
+            return (
+              this.monthNames[moment(day.date).month() + 1] +
+              new Date(day.date).getFullYear()
+            );
           }),
-        }
+        },
       ],
       series: [
         {
@@ -489,9 +511,9 @@ export class ReportsComponent {
           },
         },
         {
-          name:"hidden",
-          data:this.timeAxisData[0],
-        }
+          name: "hidden",
+          data: this.timeAxisData[0],
+        },
       ],
     };
     this.totalPerKey(this.dataKeys);
@@ -500,8 +522,8 @@ export class ReportsComponent {
   /**
    * Chart Datazoom Event
    */
-   onChartEvent(event: any, type: string) {
-    console.log('chart event:', type, event, event.end);
+  onChartEvent(event: any, type: string) {
+    console.log("chart event:", type, event, event.end);
     // let minMaxDate = {
     //   minDate: this.dateService.getDateFromLongDate(
     //     this.datestamp[

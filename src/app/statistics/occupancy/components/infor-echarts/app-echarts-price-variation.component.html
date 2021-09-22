@@ -2,7 +2,7 @@
 </div>
 <!--********* Echarts Line Chart Starts ************-->
 <div *ngIf="displaymobileversion!"><h1>Wissem</h1></div>
-<div *ngIf="displayChart" echarts #echarts [initOpts]="initOpts" [options]="chartInitOption" [merge]=mergeOption
+<div *ngIf="displayChart" echarts #echarts [initOpts]="{ locale: 'FR' }" [options]="chartInitOption" [merge]=mergeOption
     class="demo-chart" (chartDataZoom)="onChartEvent($event, 'chartDataZoom')"></div>
 <!--********* Echarts Line Chart Ends ************-->
 <div *ngIf="chartDataGloabal && chartDataGloabal.showStaticLegend">
@@ -17,11 +17,6 @@
         </div>
     </div>
 </div>
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
 
 <div class="legendButton" *ngIf="currentPath!=='/decision' && chartDataGloabal && chartDataGloabal.showLegend">
     <button soho-button="tertiary" icon="line-bar-chart" keepOpen="true" soho-popdown (click)="onOpenLegend()"
