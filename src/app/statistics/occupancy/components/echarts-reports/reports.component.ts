@@ -130,7 +130,7 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
-      top: 450,
+      top: 410,
       start: 0,
       end: 30,
     },

@@ -589,7 +589,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div *ngIf=\"!displayChart\" class=\"p-grid no-data-section w-calc-full-height hideChart\">\r\n</div>\r\n<!--********* Echarts Line Chart Starts ************-->\r\n<div *ngIf=\"displaymobileversion!\"><h1>Wissem</h1></div>\r\n<div *ngIf=\"displayChart\" echarts #echarts [initOpts]=\"{ locale: 'FR' }\" [options]=\"chartInitOption\" [merge]=mergeOption\r\n    class=\"demo-chart\" (chartDataZoom)=\"onChartEvent($event, 'chartDataZoom')\"></div>\r\n<!--********* Echarts Line Chart Ends ************-->\r\n<div *ngIf=\"chartDataGloabal && chartDataGloabal.showStaticLegend\">\r\n    <div class=\"chartHelp-content\">\r\n        <div *ngFor=\"let chartDataLine of chartData\" class=\"chartHelp-item\">\r\n            <div *ngIf=\"chartDataLine.showInStaticLegend\">\r\n                <svg soho-icon icon=\"filter-is-not-empty\" [ngStyle]=\"{ 'fill' : chartDataLine.color }\"></svg>\r\n                <label>\r\n                    {{ chartDataLine.key }}\r\n                </label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ul>\r\n    <li></li>\r\n    <li></li>\r\n    <li></li>\r\n</ul>\r\n\r\n<div class=\"legendButton\" *ngIf=\"currentPath!=='/decision' && chartDataGloabal && chartDataGloabal.showLegend\">\r\n    <button soho-button=\"tertiary\" icon=\"line-bar-chart\" keepOpen=\"true\" soho-popdown (click)=\"onOpenLegend()\"\r\n        #chartLegend></button>\r\n    <soho-popdown-contents id=\"legendButtonCharts\">\r\n        <div soho-widget class=\"legend-widget\">\r\n            <div soho-widget-content class=\"legend-content\">\r\n                <div *ngFor=\"let chartDataLine of chartData\">\r\n                    <div class=\"legend-item\" *ngIf=\"chartDataLine.showInLegend\"\r\n                        (click)=\"showChartDataLegend(chartDataLine)\">\r\n                        <svg soho-icon icon=\"empty-circle\" [ngStyle]=\"{ 'color' : chartDataLine.color }\"\r\n                            *ngIf=\"chartDataLine.disabled\"></svg>\r\n                        <svg soho-icon icon=\"filter-is-not-empty\" [ngStyle]=\"{ 'color' : chartDataLine.color }\"\r\n                            *ngIf=\"!chartDataLine.disabled\"></svg>\r\n                        <label>\r\n                            {{ chartDataLine.key }}\r\n                        </label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </soho-popdown-contents>\r\n</div>\r\n<div [ngClass]=\"{ 'over': isChartLegendOpen }\" (click)=\"onCloseLegend()\"></div>";
+    __webpack_exports__["default"] = "<div *ngIf=\"!displayChart\" class=\"p-grid no-data-section w-calc-full-height hideChart\">\r\n</div>\r\n<!--********* Echarts Line Chart Starts ************-->\r\n<div *ngIf=\"displaymobileversion!\"><h1>Wissem</h1></div>\r\n<div *ngIf=\"displayChart\" echarts #echarts [initOpts]=\"{ locale: 'FR' }\" [options]=\"chartInitOption\" [merge]=mergeOption\r\n    class=\"demo-chart\" (chartDataZoom)=\"onChartEvent($event, 'chartDataZoom')\"></div>\r\n<!--********* Echarts Line Chart Ends ************-->\r\n<div *ngIf=\"chartDataGloabal && chartDataGloabal.showStaticLegend\">\r\n    <div class=\"chartHelp-content\">\r\n        <div *ngFor=\"let chartDataLine of chartData\" class=\"chartHelp-item\">\r\n            <div *ngIf=\"chartDataLine.showInStaticLegend\">\r\n                <svg soho-icon icon=\"filter-is-not-empty\" [ngStyle]=\"{ 'fill' : chartDataLine.color }\"></svg>\r\n                <label>\r\n                    {{ chartDataLine.key }}\r\n                </label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"legendButton\" *ngIf=\"currentPath!=='/decision' && chartDataGloabal && chartDataGloabal.showLegend\">\r\n    <button soho-button=\"tertiary\" icon=\"line-bar-chart\" keepOpen=\"true\" soho-popdown (click)=\"onOpenLegend()\"\r\n        #chartLegend></button>\r\n    <soho-popdown-contents id=\"legendButtonCharts\">\r\n        <div soho-widget class=\"legend-widget\">\r\n            <div soho-widget-content class=\"legend-content\">\r\n                <div *ngFor=\"let chartDataLine of chartData\">\r\n                    <div class=\"legend-item\" *ngIf=\"chartDataLine.showInLegend\"\r\n                        (click)=\"showChartDataLegend(chartDataLine)\">\r\n                        <svg soho-icon icon=\"empty-circle\" [ngStyle]=\"{ 'color' : chartDataLine.color }\"\r\n                            *ngIf=\"chartDataLine.disabled\"></svg>\r\n                        <svg soho-icon icon=\"filter-is-not-empty\" [ngStyle]=\"{ 'color' : chartDataLine.color }\"\r\n                            *ngIf=\"!chartDataLine.disabled\"></svg>\r\n                        <label>\r\n                            {{ chartDataLine.key }}\r\n                        </label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </soho-popdown-contents>\r\n</div>\r\n<div [ngClass]=\"{ 'over': isChartLegendOpen }\" (click)=\"onCloseLegend()\"></div>";
     /***/
   },
 
@@ -4580,6 +4580,414 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/statistics/echarts-custom.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/statistics/echarts-custom.ts ***!
+    \**********************************************/
+
+  /*! exports provided: version, dependencies, PRIORITY, init, connect, disConnect, disconnect, dispose, getInstanceByDom, getInstanceById, registerTheme, registerPreprocessor, registerProcessor, registerPostInit, registerPostUpdate, registerUpdateLifecycle, registerAction, registerCoordinateSystem, getCoordinateSystemDimensions, registerLocale, registerLayout, registerVisual, registerLoading, setCanvasCreator, registerMap, getMap, registerTransform, dataTool, zrender, matrix, vector, zrUtil, color, throttle, helper, use, parseGeoJSON, parseGeoJson, number, time, graphic, format, util, env, List, Model, Axis, ComponentModel, ComponentView, SeriesModel, ChartView, innerDrawElementOnCanvas, extendComponentModel, extendComponentView, extendSeriesModel, extendChartView */
+
+  /***/
+  function srcAppStatisticsEchartsCustomTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! echarts/lib/echarts */
+    "./node_modules/echarts/lib/echarts.js");
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "version", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["version"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "dependencies", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["dependencies"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PRIORITY", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["PRIORITY"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "init", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["init"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "connect", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["connect"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "disConnect", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["disConnect"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "disconnect", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["disconnect"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "dispose", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["dispose"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getInstanceByDom", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["getInstanceByDom"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getInstanceById", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["getInstanceById"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerTheme", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerTheme"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerPreprocessor", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerPreprocessor"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerProcessor", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerProcessor"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerPostInit", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerPostInit"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerPostUpdate", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerPostUpdate"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerUpdateLifecycle", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerUpdateLifecycle"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerAction", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerAction"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerCoordinateSystem", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerCoordinateSystem"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getCoordinateSystemDimensions", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["getCoordinateSystemDimensions"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerLocale", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerLocale"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerLayout", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerLayout"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerVisual", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerVisual"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerLoading", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerLoading"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "setCanvasCreator", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["setCanvasCreator"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerMap", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerMap"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getMap", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["getMap"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "registerTransform", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["registerTransform"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "dataTool", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["dataTool"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "zrender", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["zrender"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "matrix", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["matrix"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "vector", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["vector"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "zrUtil", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["zrUtil"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "color", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["color"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "throttle", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["throttle"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "helper", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["helper"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "use", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["use"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "parseGeoJSON", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["parseGeoJSON"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "parseGeoJson", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["parseGeoJson"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "number", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["number"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "time", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["time"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "graphic", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["graphic"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "format", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["format"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "util", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["util"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "env", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["env"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "List", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["List"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Model", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["Model"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Axis", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["Axis"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ComponentModel", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["ComponentModel"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ComponentView", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["ComponentView"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SeriesModel", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["SeriesModel"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ChartView", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["ChartView"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "innerDrawElementOnCanvas", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["innerDrawElementOnCanvas"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "extendComponentModel", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["extendComponentModel"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "extendComponentView", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["extendComponentView"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "extendSeriesModel", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["extendSeriesModel"];
+    });
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "extendChartView", function () {
+      return echarts_lib_echarts__WEBPACK_IMPORTED_MODULE_1__["extendChartView"];
+    });
+    /* harmony import */
+
+
+    var echarts_lib_chart_line__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! echarts/lib/chart/line */
+    "./node_modules/echarts/lib/chart/line.js");
+    /* harmony import */
+
+
+    var echarts_lib_chart_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! echarts/lib/chart/bar */
+    "./node_modules/echarts/lib/chart/bar.js");
+    /* harmony import */
+
+
+    var echarts_lib_component_tooltip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! echarts/lib/component/tooltip */
+    "./node_modules/echarts/lib/component/tooltip.js");
+    /* harmony import */
+
+
+    var echarts_lib_component_title__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! echarts/lib/component/title */
+    "./node_modules/echarts/lib/component/title.js");
+    /* harmony import */
+
+
+    var echarts_lib_component_toolbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! echarts/lib/component/toolbox */
+    "./node_modules/echarts/lib/component/toolbox.js");
+    /* harmony import */
+
+
+    var echarts_lib_component_dataZoom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! echarts/lib/component/dataZoom */
+    "./node_modules/echarts/lib/component/dataZoom.js");
+    /* harmony import */
+
+
+    var echarts_lib_component_grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! echarts/lib/component/grid */
+    "./node_modules/echarts/lib/component/grid.js"); // component examples:
+
+    /***/
+
+  },
+
+  /***/
   "./src/app/statistics/occupancy/components/busyindicator/body-sample.demo.ts":
   /*!***********************************************************************************!*\
     !*** ./src/app/statistics/occupancy/components/busyindicator/body-sample.demo.ts ***!
@@ -5456,7 +5864,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             containLabel: true
           },
           dataZoom: {
-            top: 450,
+            top: 410,
             start: 0,
             end: 30
           },
@@ -21542,24 +21950,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _price_variation_Price_Variation_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(
     /*! ../price-variation/Price Variation.json */
     "./src/app/statistics/occupancy/components/price-variation/Price Variation.json", 1);
-    /* harmony import */
-
-
-    var echarts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! echarts */
-    "./node_modules/echarts/index.js");
-    /* harmony import */
-
-
-    var echarts_i18n_langFR__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! echarts/i18n/langFR */
-    "./node_modules/echarts/i18n/langFR.js");
-    /* harmony import */
-
-
-    var echarts_i18n_langFR__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(echarts_i18n_langFR__WEBPACK_IMPORTED_MODULE_6__);
-
-    Object(echarts__WEBPACK_IMPORTED_MODULE_5__["registerLocale"])("FR", echarts_i18n_langFR__WEBPACK_IMPORTED_MODULE_6___default.a);
 
     var EchartsInforPriceComponent = /*#__PURE__*/function () {
       function EchartsInforPriceComponent(AppEchartsService, host) {
@@ -21575,14 +21965,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#e4e6e8",
           area: true,
-          order: 0,
-          toolTipOrder: 2,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: false,
           isCSVExport: true
@@ -21593,14 +21975,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#FFFFFF",
           area: true,
-          order: 1,
-          toolTipOrder: 3,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: false,
           isCSVExport: true
@@ -21611,14 +21985,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#e4e6e8",
           area: false,
-          order: 2,
-          toolTipOrder: -1,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: false,
           isCSVExport: false
@@ -21629,14 +21995,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#0072ED",
           area: false,
-          order: 3,
-          toolTipOrder: 0,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: false,
           isCSVExport: true
@@ -21647,14 +22005,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#cd6200",
           area: false,
-          order: 4,
-          toolTipOrder: 1,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: false,
           isCSVExport: true
@@ -21665,14 +22015,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#69B5DD",
           area: false,
-          order: 5,
-          toolTipOrder: 4,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21683,14 +22025,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#D26D6D",
           area: false,
-          order: 6,
-          toolTipOrder: 5,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21701,14 +22035,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#9CCE7C",
           area: false,
-          order: 7,
-          toolTipOrder: 6,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21719,14 +22045,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#F4C951",
           area: false,
-          order: 8,
-          toolTipOrder: 7,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21737,14 +22055,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#B59ECA",
           area: false,
-          order: 9,
-          toolTipOrder: 8,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21755,14 +22065,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#7CC0B5",
           area: false,
-          order: 10,
-          toolTipOrder: 9,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21773,14 +22075,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 1,
           color: "#B59ECA",
           area: false,
-          order: 11,
-          toolTipOrder: 10,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: true,
           showInLegend: true,
           isCSVExport: false
@@ -21791,14 +22085,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           yAxis: 0,
           color: "#6E5282",
           area: false,
-          order: 13,
-          toolTipOrder: 13,
-          comment: "no comment",
-          formula: {
-            nullIfNegative: false,
-            expressionString: null,
-            mainArgument: null
-          },
           disabled: false,
           showInLegend: true,
           isCSVExport: false
@@ -21828,15 +22114,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             axisLabel: {
               showMinLabel: true,
               showMaxLabel: true,
-              formatter: '{MMM} {d}',
+              formatter: "{MMM} {d}",
               fontSize: 12,
-              fontFamily: 'Helvetica'
+              fontFamily: "Helvetica"
             }
           }, {
             type: "time",
             id: "Axe2",
             boundaryGap: false,
-            position: 'bottom',
+            position: "bottom",
             offset: 30
           }],
           yAxis: {
@@ -21961,161 +22247,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(EchartsInforPriceComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          /*setTimeout(() => {
-                  this.mergeOption={ series: [{ name: "Max Price", data:this.data },{name:"Min Price", data:this.data }] }
-              }, 20000);*/
-          // this.lang = {
-          //   time: {
-          //     month: [
-          //       "Janvier",
-          //       "Février",
-          //       "Mars",
-          //       "Avril",
-          //       "Mai",
-          //       "Juin",
-          //       "Juillet",
-          //       "Août",
-          //       "Septembre",
-          //       "Octobre",
-          //       "Novembre",
-          //       "Décembre",
-          //     ],
-          //     monthAbbr: [
-          //       "Janv.",
-          //       "Févr",
-          //       "Mars",
-          //       "Avr",
-          //       "Mai",
-          //       "Juin",
-          //       "Juill",
-          //       "Août",
-          //       "Sept",
-          //       "Oct",
-          //       "Nov",
-          //       "Déc",
-          //     ],
-          //     dayOfWeek: [
-          //       "Dimanche",
-          //       "Lundi",
-          //       "Mardi",
-          //       "Mercredi",
-          //       "Jeudi",
-          //       "Vendredi",
-          //       "Samedi",
-          //     ],
-          //     dayOfWeekAbbr: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
-          //   },
-          //   legend: {
-          //     selector: {
-          //       all: "Tout",
-          //       inverse: "Inverse",
-          //     },
-          //   },
-          //   toolbox: {
-          //     brush: {
-          //       title: {
-          //         rect: "Sélection de boîte",
-          //         polygon: "Sélection au Lasso",
-          //         lineX: "Sélectionner horizontalement",
-          //         lineY: "Sélectionner verticalement",
-          //         keep: "Garder la sélection",
-          //         clear: "Effacer la sélection",
-          //       },
-          //     },
-          //     dataView: {
-          //       title: "Visualisation des données",
-          //       lang: ["Visualisation des données", "Fermer", "Rafraîchir"],
-          //     },
-          //     dataZoom: {
-          //       title: {
-          //         zoom: "Zoom",
-          //         back: "Zoom Reset",
-          //       },
-          //     },
-          //     magicType: {
-          //       title: {
-          //         line: "Changer à Ligne",
-          //         bar: "Changer à Histogramme",
-          //         stack: "Superposition",
-          //         tiled: "Tuile",
-          //       },
-          //     },
-          //     restore: {
-          //       title: "Restaurer",
-          //     },
-          //     saveAsImage: {
-          //       title: "Sauvegarde l'image",
-          //       lang: ["Clic droit pour sauvegarde L'image"],
-          //     },
-          //   },
-          //   series: {
-          //     typeNames: {
-          //       pie: "Circulaire",
-          //       bar: "Histogramme",
-          //       line: "Linéaire",
-          //       scatter: "Nuage de points",
-          //       effectScatter: "Ripple scatter plot",
-          //       radar: "Radar",
-          //       tree: "Arborescent",
-          //       treemap: "Treemap",
-          //       boxplot: "Boîte à moustaches",
-          //       candlestick: "Chandelier",
-          //       k: "Linéaire K",
-          //       heatmap: "Carte de chaleur",
-          //       map: "Carte",
-          //       parallel: "Carte de coordonnées parallèles",
-          //       lines: "Line graph",
-          //       graph: "Relations",
-          //       sankey: "Sankey",
-          //       funnel: "Entonnoir",
-          //       gauge: "Jauge",
-          //       pictorialBar: "Pictorial bar",
-          //       themeRiver: "Theme River Map",
-          //       sunburst: "Sunburst",
-          //     },
-          //   },
-          //   aria: {
-          //     general: {
-          //       withTitle: 'Cette carte est pour "{title}"',
-          //       withoutTitle: "Elle est une carte",
-          //     },
-          //     series: {
-          //       single: {
-          //         prefix: "",
-          //         withName:
-          //           " Avec le type de {seriesType} qui s'appelle {seriesName}.",
-          //         withoutName: " Avec le type de {seriesType}.",
-          //       },
-          //       multiple: {
-          //         prefix: ". Elle comprend {seriesCount} série.",
-          //         withName:
-          //           " La série {seriesId} représente {seriesName} de {seriesType}.",
-          //         withoutName: " La série {seriesId} est un/une {seriesType}.",
-          //         separator: {
-          //           middle: "",
-          //           end: "",
-          //         },
-          //       },
-          //     },
-          //     data: {
-          //       allData: "Les données sont: ",
-          //       partialData: "Le premier {displayCnt} items are: ",
-          //       withName: "Les données pour {name} sont {value}",
-          //       withoutName: "{value}",
-          //       separator: {
-          //         middle: ", ",
-          //         end: ". ",
-          //       },
-          //     },
-          //   },
-          // };
           this.innerWidth = window.innerWidth;
           this.initializeChart(_price_variation_Price_Variation_json__WEBPACK_IMPORTED_MODULE_4__);
         }
       }, {
         key: "initializeChart",
         value: function initializeChart(chartDataGloabal) {
-          // console.log(this.echartsdiv)
           this.innerWidth = window.innerWidth;
           this.innerWidth < 768 ? this.showDataZoom = false : this.showDataZoom = true;
           this.chartDataGloabal = chartDataGloabal;
@@ -22138,11 +22275,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }]
           };
           this.createChartData();
-          console.log("This ChartDataGlobal,this PriceData", chartDataGloabal, this.datestamp);
         }
       }, {
         key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {// echarts.registerLocale("FR", this.lang);
+        value: function ngAfterViewInit() {// echarts.registerLocale("FR", langFR);
           // echarts.init(this.echartsdiv.nativeElement, null, {
           //   locale: "FR",
           //   height:400
@@ -22183,8 +22319,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "onChartEvent",
         value: function onChartEvent(event, type) {
           console.log("chart event:", type, event, event.end);
-          console.log(this.datestamp[Math.round(event.end * (this.datestamp.length - 1) / 100)]);
-          console.log(this.chartDataGloabal);
         }
         /**
          * create Chart Data
@@ -22243,7 +22377,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("echarts", {
       "static": false
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])], EchartsInforPriceComponent.prototype, "echartsdiv", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:resize', ['$event']), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)], EchartsInforPriceComponent.prototype, "onResizeWindow", null);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])("window:resize", ["$event"]), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)], EchartsInforPriceComponent.prototype, "onResizeWindow", null);
     EchartsInforPriceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: "echarts-infor",
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -23189,94 +23323,73 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _occupancy_components_spinbox_spinbox_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _statistics_echarts_custom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ../statistics/echarts-custom */
+    "./src/app/statistics/echarts-custom.ts");
+    /* harmony import */
+
+
+    var _occupancy_components_spinbox_spinbox_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./occupancy/components/spinbox/spinbox.component */
     "./src/app/statistics/occupancy/components/spinbox/spinbox.component.ts");
     /* harmony import */
 
 
-    var _occupancy_components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _occupancy_components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! ./occupancy/components/tabs/tabs.component */
     "./src/app/statistics/occupancy/components/tabs/tabs.component.ts");
     /* harmony import */
 
 
-    var _occupancy_components_tabs_list_tabs_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    var _occupancy_components_tabs_list_tabs_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./occupancy/components/tabs-list/tabs-list.component */
     "./src/app/statistics/occupancy/components/tabs-list/tabs-list.component.ts");
     /* harmony import */
 
 
-    var _occupancy_components_echarts_reports_reports_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    var _occupancy_components_echarts_reports_reports_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
     /*! ./occupancy/components/echarts-reports/reports.component */
     "./src/app/statistics/occupancy/components/echarts-reports/reports.component.ts");
     /* harmony import */
 
 
-    var _occupancy_components_echarts_reports_reports_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    var _occupancy_components_echarts_reports_reports_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./occupancy/components/echarts-reports/reports.service */
     "./src/app/statistics/occupancy/components/echarts-reports/reports.service.ts");
     /* harmony import */
 
 
-    var echarts_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
-    /*! echarts/core */
-    "./node_modules/echarts/core.js");
+    var echarts_lib_core_locale__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! echarts/lib/core/locale */
+    "./node_modules/echarts/lib/core/locale.js");
     /* harmony import */
 
 
-    var echarts_charts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
-    /*! echarts/charts */
-    "./node_modules/echarts/charts.js");
-    /* harmony import */
+    var echarts_lib_i18n_langFR__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! echarts/lib/i18n/langFR */
+    "./node_modules/echarts/lib/i18n/langFR.js"); // Import the echarts core module, which provides the necessary interfaces for using echarts.
+    // import * as echarts from 'echarts/core';
+    // // Import bar charts, all with Chart suffix
+    // import { BarChart,LineChart } from 'echarts/charts';
+    // import { TitleComponent, TooltipComponent, GridComponent, DataZoomComponent } from 'echarts/components';
+    // // Import the Canvas renderer, note that introducing the CanvasRenderer or SVGRenderer is a required step
+    // import { CanvasRenderer } from 'echarts/renderers';
+    // import 'echarts/theme/macarons.js';
+    // echarts.use([TitleComponent, TooltipComponent, GridComponent, BarChart, LineChart, DataZoomComponent, CanvasRenderer]);
 
 
-    var echarts_components__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
-    /*! echarts/components */
-    "./node_modules/echarts/components.js");
-    /* harmony import */
-
-
-    var echarts_renderers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
-    /*! echarts/renderers */
-    "./node_modules/echarts/renderers.js");
-    /* harmony import */
-
-
-    var echarts_theme_macarons_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
-    /*! echarts/theme/macarons.js */
-    "./node_modules/echarts/theme/macarons.js");
-    /* harmony import */
-
-
-    var echarts_theme_macarons_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(echarts_theme_macarons_js__WEBPACK_IMPORTED_MODULE_23__); // import * as echarts from "../statistics/echarts-custom";
-    // Import the echarts core module, which provides the necessary interfaces for using echarts.
-    // Import bar charts, all with Chart suffix
-    // Import the Canvas renderer, note that introducing the CanvasRenderer or SVGRenderer is a required step
-
-
-    echarts_core__WEBPACK_IMPORTED_MODULE_19__["use"]([echarts_components__WEBPACK_IMPORTED_MODULE_21__["TitleComponent"], echarts_components__WEBPACK_IMPORTED_MODULE_21__["TooltipComponent"], echarts_components__WEBPACK_IMPORTED_MODULE_21__["GridComponent"], echarts_charts__WEBPACK_IMPORTED_MODULE_20__["BarChart"], echarts_charts__WEBPACK_IMPORTED_MODULE_20__["LineChart"], echarts_components__WEBPACK_IMPORTED_MODULE_21__["DataZoomComponent"], echarts_renderers__WEBPACK_IMPORTED_MODULE_22__["CanvasRenderer"]]);
+    Object(echarts_lib_core_locale__WEBPACK_IMPORTED_MODULE_20__["registerLocale"])('FR', echarts_lib_i18n_langFR__WEBPACK_IMPORTED_MODULE_21__["default"]);
 
     var StatisticsModule = function StatisticsModule() {
       _classCallCheck(this, StatisticsModule);
     };
 
     StatisticsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_occupancy_components_echarts_reports_reports_component__WEBPACK_IMPORTED_MODULE_17__["ReportsComponent"], _occupancy_components_tabs_list_tabs_list_component__WEBPACK_IMPORTED_MODULE_16__["TabsDataDrivenDemoComponent"], _occupancy_components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_15__["TabsBasicDemoComponent"], _occupancy_components_spinbox_spinbox_component__WEBPACK_IMPORTED_MODULE_14__["SpinboxDemoComponent"], _occupancy_components_busyindicator_body_sample_demo__WEBPACK_IMPORTED_MODULE_6__["BusyIndicatorDemoBodyComponent"], _occupancy_occupancy_component__WEBPACK_IMPORTED_MODULE_13__["OccupancyComponent"], // DataGridOccupancyComponent,
-      // LineChartOccupancyComponent,
-      // ExportDataGridComponent,
-      // PlotlyLineComponent,
-      // PriceVariationComponent,
-      // OccupancyForecastComponent,
-      _occupancy_components_price_variation_datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_12__["DatePickerComponent"], _occupancy_components_echarts_price_variation_echarts_price_variation_component__WEBPACK_IMPORTED_MODULE_9__["EchartsPriceComponent"], _occupancy_components_echarts_historical_chart_echarts_historical_component__WEBPACK_IMPORTED_MODULE_7__["EchartsHistoricalComponent"], _occupancy_components_echarts_multiline_echarts_lines_component__WEBPACK_IMPORTED_MODULE_8__["EchartsLinesComponent"], _occupancy_components_occupancy_issue_occupancy_issue_component__WEBPACK_IMPORTED_MODULE_11__["OccupancyIssueComponent"], _occupancy_components_infor_echarts_app_echarts_chart_component__WEBPACK_IMPORTED_MODULE_10__["EchartsInforPriceComponent"]],
+      declarations: [_occupancy_components_echarts_reports_reports_component__WEBPACK_IMPORTED_MODULE_18__["ReportsComponent"], _occupancy_components_tabs_list_tabs_list_component__WEBPACK_IMPORTED_MODULE_17__["TabsDataDrivenDemoComponent"], _occupancy_components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_16__["TabsBasicDemoComponent"], _occupancy_components_spinbox_spinbox_component__WEBPACK_IMPORTED_MODULE_15__["SpinboxDemoComponent"], _occupancy_components_busyindicator_body_sample_demo__WEBPACK_IMPORTED_MODULE_6__["BusyIndicatorDemoBodyComponent"], _occupancy_occupancy_component__WEBPACK_IMPORTED_MODULE_13__["OccupancyComponent"], _occupancy_components_price_variation_datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_12__["DatePickerComponent"], _occupancy_components_echarts_price_variation_echarts_price_variation_component__WEBPACK_IMPORTED_MODULE_9__["EchartsPriceComponent"], _occupancy_components_echarts_historical_chart_echarts_historical_component__WEBPACK_IMPORTED_MODULE_7__["EchartsHistoricalComponent"], _occupancy_components_echarts_multiline_echarts_lines_component__WEBPACK_IMPORTED_MODULE_8__["EchartsLinesComponent"], _occupancy_components_occupancy_issue_occupancy_issue_component__WEBPACK_IMPORTED_MODULE_11__["OccupancyIssueComponent"], _occupancy_components_infor_echarts_app_echarts_chart_component__WEBPACK_IMPORTED_MODULE_10__["EchartsInforPriceComponent"]],
       imports: [ids_enterprise_ng__WEBPACK_IMPORTED_MODULE_4__["SohoComponentsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], ngx_echarts__WEBPACK_IMPORTED_MODULE_5__["NgxEchartsModule"].forRoot({
-        echarts: function echarts() {
-          return Promise.resolve().then(__webpack_require__.bind(null,
-          /*! echarts */
-          "./node_modules/echarts/index.js"));
-        }
+        echarts: _statistics_echarts_custom__WEBPACK_IMPORTED_MODULE_14__
       })],
-      providers: [_occupancy_components_echarts_reports_reports_service__WEBPACK_IMPORTED_MODULE_18__["ReportsService"]]
+      providers: [_occupancy_components_echarts_reports_reports_service__WEBPACK_IMPORTED_MODULE_19__["ReportsService"]]
     })], StatisticsModule);
     /***/
   },
