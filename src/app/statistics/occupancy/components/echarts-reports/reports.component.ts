@@ -140,9 +140,12 @@ export class ReportsComponent {
         type: "time",
         show: false,
         interval: 10,
-        axisLabel: {
-          formatter: "{MMM} {yyyy}",
-        },
+        // axisLabel: {
+        //   formatter: (value) => {
+        //     let date = new Date(value);
+        //     return date.getMonth() +'-'+date.getFullYear();
+        //   },
+        // },
       },
       {
         id: "axe2",
@@ -195,6 +198,7 @@ export class ReportsComponent {
           align: "left",
           lineHeight: 46,
           verticalAlign: "top",
+
         },
         splitLine: {
           show: false,
@@ -237,9 +241,10 @@ export class ReportsComponent {
     series: [
       {
         name: "Definite",
-        type: "bar",
-        barGap: "0%",
+        type: "line",
         stack: "1",
+        areaStyle: {},
+        symbol: "none",
         emphasis: {
           focus: "none",
         },
@@ -259,8 +264,10 @@ export class ReportsComponent {
       },
       {
         name: "Guaranteed",
-        type: "bar",
+        type: "line",
         stack: "1",
+        areaStyle: {},
+        symbol: "none",
         xAxisIndex: 1,
         emphasis: {
           focus: "none",
@@ -269,8 +276,10 @@ export class ReportsComponent {
       },
       {
         name: "Option",
-        type: "bar",
+        type: "line",
         stack: "1",
+        areaStyle: {},
+        symbol: "none",
         xAxisIndex: 1,
         emphasis: {
           focus: "none",
@@ -279,8 +288,10 @@ export class ReportsComponent {
       },
       {
         name: "Tentative",
-        type: "bar",
+        type: "line",
         stack: "1",
+        areaStyle: {},
+        symbol: "none",
         xAxisIndex: 1,
         emphasis: {
           focus: "none",
@@ -289,8 +300,10 @@ export class ReportsComponent {
       },
       {
         name: "Unguaranteed",
-        type: "bar",
+        type: "line",
         stack: "1",
+        areaStyle: {},
+        symbol: "none",
         xAxisIndex: 1,
         data: [],
         emphasis: {
@@ -299,8 +312,9 @@ export class ReportsComponent {
       },
       {
         name: "Wait-list",
-        type: "bar",
-        barWidth: 5,
+        type: "line",
+        areaStyle: {},
+        symbol: "none",
         stack: "1",
         xAxisIndex: 1,
         emphasis: {
@@ -401,9 +415,6 @@ export class ReportsComponent {
         return [new Date(day.date), null];
       })
     );
-    console.log("timeAXISDATAAA", this.timeAxisData);
-    console.log("subValues keys", this.subValuesKeys());
-    console.log("The init data", this.globalData);
     this.mergeOption = {
       xAxis: [
         {
