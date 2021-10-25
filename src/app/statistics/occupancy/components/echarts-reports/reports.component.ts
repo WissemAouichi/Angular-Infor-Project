@@ -22,7 +22,7 @@ export class ReportsComponent {
   public dataMarket;
   public globalData;
   //Chart variables
-  public initOpts = { height: "500px", renderer: 'svg' };
+  public initOpts = { height: "500px", renderer: "svg" };
   public mergeOption;
   public weekDays = ["S", "M", "T", "W", "T", "F", "S"];
   public monthNames = [
@@ -198,7 +198,6 @@ export class ReportsComponent {
           align: "left",
           lineHeight: 46,
           verticalAlign: "top",
-
         },
         splitLine: {
           show: false,
@@ -405,7 +404,6 @@ export class ReportsComponent {
     this.optionForm = new FormGroup({
       dimension: this.dimension,
     });
-    console.log(this.optionForm);
     this.globalData = this.dataService.getData();
     this.subValuesKeys();
     this.totalAsDouble = this.globalData.data[0].totalAsDouble;
