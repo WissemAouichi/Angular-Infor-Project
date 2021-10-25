@@ -17,19 +17,11 @@ import { TabsBasicDemoComponent } from "./occupancy/components/tabs/tabs.compone
 import { TabsDataDrivenDemoComponent } from "./occupancy/components/tabs-list/tabs-list.component";
 import { ReportsComponent } from "./occupancy/components/echarts-reports/reports.component";
 import { ReportsService } from "./occupancy/components/echarts-reports/reports.service";
-// Import the echarts core module, which provides the necessary interfaces for using echarts.
-// import * as echarts from 'echarts/core';
-// // Import bar charts, all with Chart suffix
-// import { BarChart,LineChart } from 'echarts/charts';
-// import { TitleComponent, TooltipComponent, GridComponent, DataZoomComponent } from 'echarts/components';
-// // Import the Canvas renderer, note that introducing the CanvasRenderer or SVGRenderer is a required step
-// import { CanvasRenderer } from 'echarts/renderers';
-// import 'echarts/theme/macarons.js';
 import { registerLocale } from "echarts/lib/core/locale";
-import langFR from "echarts/lib/i18n/langFR"
+import langFR from "echarts/lib/i18n/langFR";
 
 // echarts.use([TitleComponent, TooltipComponent, GridComponent, BarChart, LineChart, DataZoomComponent, CanvasRenderer]);
-registerLocale('FR',langFR)
+registerLocale("FR", langFR);
 
 @NgModule({
   declarations: [
