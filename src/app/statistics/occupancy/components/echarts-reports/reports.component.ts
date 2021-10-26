@@ -22,7 +22,7 @@ export class ReportsComponent {
   public dataMarket;
   public globalData;
   //Chart variables
-  public initOpts = { height: "500px", renderer: "svg" };
+  public initOpts = { height: "500px", renderer: 'svg' };
   public mergeOption;
   public weekDays = ["S", "M", "T", "W", "T", "F", "S"];
   public monthNames = [
@@ -39,78 +39,12 @@ export class ReportsComponent {
     "November",
     "December",
   ];
-  private seasonLevels = {
-    high: {
-      itemStyle: {
-        color: "rgba(255, 173, 177, 0.4)",
-      },
-      data: [
-        [
-          {
-            name: "High",
-            xAxis: "",
-          },
-          {
-            xAxis: "",
-          },
-        ],
-      ],
-    },
-    shoulder: {
-      itemStyle: {
-        color: "#add8e6",
-      },
-      data: [
-        [
-          {
-            name: "Shoulder",
-            xAxis: "",
-          },
-          {
-            xAxis: "",
-          },
-        ],
-      ],
-    },
-    medium: {
-      itemStyle: {
-        color: "#2DB329",
-      },
-      data: [
-        [
-          {
-            name: "Low",
-            xAxis: "",
-          },
-          {
-            xAxis: "",
-          },
-        ],
-      ],
-    },
-    low: {
-      itemStyle: {
-        color: "#FFAA00",
-      },
-      data: [
-        [
-          {
-            name: "Medium",
-            xAxis: "",
-          },
-          {
-            xAxis: "",
-          },
-        ],
-      ],
-    },
-  };
+
   public chartInitOption: EChartsOption = {
     tooltip: {
       trigger: "axis",
       axisPointer: {
-        // 坐标轴指示器，坐触发有效
-        type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
+        type: "shadow",
       },
     },
     legend: {
@@ -130,7 +64,7 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
-      top: 410,
+      top: 360,
       start: 0,
       end: 30,
     },
@@ -158,14 +92,15 @@ export class ReportsComponent {
         },
         axisTick: {
           alignWithLabel: false,
-          length: 40,
+          length: 0,
         },
         axisLabel: {
           height: 50,
           interval: 0,
-          color: function (value, index) {
-            return value.toString().includes("S") ? "red" : "green";
-          },
+          // color: function (value, index) {
+          //   return value.toString().includes("S") ? "red" : "green";
+          // },
+
           formatter: function (params, index) {
             return params.split("/").join("\n");
           },
@@ -184,6 +119,7 @@ export class ReportsComponent {
       {
         id: "weeks",
         position: "bottom",
+        show:false,
         offset: 40,
         data: [],
         axisLine: {
@@ -191,13 +127,14 @@ export class ReportsComponent {
         },
         axisTick: {
           alignWithLabel: false,
-          length: 40,
+          length: 0,
         },
         axisLabel: {
           interval: 6,
           align: "left",
           lineHeight: 46,
           verticalAlign: "top",
+
         },
         splitLine: {
           show: false,
@@ -209,7 +146,7 @@ export class ReportsComponent {
       {
         id: "months",
         position: "bottom",
-        offset: 80,
+        offset: 40,
         data: [],
         //   interval: 1,
         axisLine: {
@@ -342,22 +279,7 @@ export class ReportsComponent {
           145, 153, 142, 146, 146, 141, 142, 146, 144, 142, 143, 149, 146, 152,
           152, 144, 149, 153, 150, 150, 150, 150, 150, 150, 150, 150,
         ],
-        markArea: {
-          itemStyle: {
-            color: "rgba(255, 173, 177, 0.4)",
-          },
-          data: [
-            [
-              {
-                name: "High",
-                xAxis: "2020-03-02",
-              },
-              {
-                xAxis: "2020-03-11",
-              },
-            ],
-          ],
-        },
+
       },
       {
         name: "",
@@ -366,22 +288,22 @@ export class ReportsComponent {
         symbol: "none",
         xAxisIndex: 1,
         data: [],
-        markArea: {
-          itemStyle: {
-            color: "rgba(25, 173, 177, 0.4)",
-          },
-          data: [
-            [
-              {
-                name: "Shor",
-                xAxis: "2020-04-02",
-              },
-              {
-                xAxis: "2020-04-03",
-              },
-            ],
-          ],
-        },
+        // markArea: {
+        //   itemStyle: {
+        //     color: "rgba(25, 173, 177, 0.4)",
+        //   },
+        //   data: [
+        //     [
+        //       {
+        //         name: "Shor",
+        //         xAxis: "2020-04-02",
+        //       },
+        //       {
+        //         xAxis: "2020-04-03",
+        //       },
+        //     ],
+        //   ],
+        // },
       },
       {
         name: "hidden",
@@ -404,15 +326,18 @@ export class ReportsComponent {
     this.optionForm = new FormGroup({
       dimension: this.dimension,
     });
+    console.log(this.optionForm);
     this.globalData = this.dataService.getData();
     this.subValuesKeys();
     this.totalAsDouble = this.globalData.data[0].totalAsDouble;
-    this.seasonArea();
     this.timeAxisData.push(
       this.globalData.data[0].days.map((day) => {
         return [new Date(day.date), null];
       })
     );
+    console.log("timeAXISDATAAA", this.timeAxisData);
+    console.log("subValues keys", this.subValuesKeys());
+    console.log("The init data", this.globalData);
     this.mergeOption = {
       xAxis: [
         {
@@ -450,6 +375,22 @@ export class ReportsComponent {
           data: this.globalData.data[0].days.map((day) => {
             return day.subValues[this.subValuesKeys()[0]];
           }),
+          markArea: {
+            itemStyle: {
+              color: 'rgba(255, 173, 177, 0.4)',
+            },
+            data: [
+              [
+                {
+                  name: "High",
+                  coord:[0,0]              
+                },
+                {
+                  xAxis:new Date(this.timeAxisData[20])
+                },
+              ],
+            ],
+          },
         },
         {
           name: this.subValuesKeys()[1],
@@ -483,41 +424,41 @@ export class ReportsComponent {
         },
         {
           name: "Capacity",
-          markArea: {
-            itemStyle: {
-              color: this.seasonLevels.high.itemStyle.color,
-            },
-            data: [
-              [
-                {
-                  name: this.seasonLevels.high.data[0][0].name,
-                  xAxis: this.seasonLevels.high.data[0][0].xAxis,
-                },
-                {
-                  xAxis: this.seasonLevels.high.data[0][1].xAxis,
-                },
-              ],
-            ],
-          },
+          // markArea: {
+          //   itemStyle: {
+          //     color: this.seasonLevels.high.itemStyle.color,
+          //   },
+          //   data: [
+          //     [
+          //       {
+          //         name: this.seasonLevels.high.data[0][0].name,
+          //         xAxis: this.seasonLevels.high.data[0][0].xAxis,
+          //       },
+          //       {
+          //         xAxis: this.seasonLevels.high.data[0][1].xAxis,
+          //       },
+          //     ],
+          //   ],
+          // },
         },
         {
           name: "",
-          markArea: {
-            itemStyle: {
-              color: this.seasonLevels.shoulder.itemStyle.color,
-            },
-            data: [
-              [
-                {
-                  name: this.seasonLevels.shoulder.data[0][0].name,
-                  xAxis: this.seasonLevels.shoulder.data[0][0].xAxis,
-                },
-                {
-                  xAxis: this.seasonLevels.shoulder.data[0][1].xAxis,
-                },
-              ],
-            ],
-          },
+          // markArea: {
+          //   itemStyle: {
+          //     color: this.seasonLevels.shoulder.itemStyle.color,
+          //   },
+          //   data: [
+          //     [
+          //       {
+          //         name: this.seasonLevels.shoulder.data[0][0].name,
+          //         xAxis: this.seasonLevels.shoulder.data[0][0].xAxis,
+          //       },
+          //       {
+          //         xAxis: this.seasonLevels.shoulder.data[0][1].xAxis,
+          //       },
+          //     ],
+          //   ],
+          // },
         },
         {
           name: "hidden",
@@ -829,38 +770,4 @@ export class ReportsComponent {
     this.dimension = formvalue.dimension;
   }
 
-  seasonArea() {
-    let high = [];
-    let shoulder = [];
-    let low = [];
-    let medium = [];
-    this.globalData.data[0].days.forEach((date) => {
-      switch (date.seasonLevel) {
-        case "1.0":
-          high.push(this.globalData.data[0].days.indexOf(date));
-          break;
-        case "2.0":
-          shoulder.push(this.globalData.data[0].days.indexOf(date));
-          break;
-        case "3.0":
-          low.push(this.globalData.data[0].days.indexOf(date));
-          break;
-        case "4.0":
-          medium.push(this.globalData.data[0].days.indexOf(date));
-          break;
-      }
-    });
-    this.seasonLevels.high.data[0][0].xAxis =
-      this.globalData.data[0].days[high[0]].date;
-    this.seasonLevels.high.data[0][1].xAxis =
-      this.globalData.data[0].days[high[high.length - 1]].date;
-    this.seasonLevels.shoulder.data[0][0].xAxis =
-      this.globalData.data[0].days[shoulder[0]].date;
-    this.seasonLevels.shoulder.data[0][1].xAxis =
-      this.globalData.data[0].days[shoulder[shoulder.length - 1]].date;
-    // this.seasonLevels.low.data[0][0].xAxis = this.globalData.data[0].days[low[0]].date
-    // this.seasonLevels.low.data[0][1].xAxis = this.globalData.data[0].days[low[low.length - 1]].date
-    // this.seasonLevels.medium.data[0][0].xAxis = this.globalData.data[0].days[medium[0]].date
-    // this.seasonLevels.medium.data[0][1].xAxis = this.globalData.data[0].days[medium[medium.length - 1]].date
-  }
 }
