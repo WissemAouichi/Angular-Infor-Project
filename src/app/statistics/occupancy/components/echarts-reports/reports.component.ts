@@ -4,7 +4,7 @@ import { EChartsOption } from "echarts";
 import { SohoBusyIndicatorDirective } from "ids-enterprise-ng";
 import * as moment from "moment";
 import { ReportsService } from "./reports.service";
-
+import * as echarts from 'echarts/core';
 @Component({
   selector: "echarts-reports",
   templateUrl: "./reports.component.html",
@@ -22,7 +22,7 @@ export class ReportsComponent {
   public dataMarket;
   public globalData;
   //Chart variables
-  public initOpts = { height: "500px", renderer: 'svg' };
+  public initOpts = { height: "500px", renderer: "svg" };
   public mergeOption;
   public weekDays = ["S", "M", "T", "W", "T", "F", "S"];
   public monthNames = [
@@ -64,7 +64,7 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
-      top: 360,
+      top: 390,
       start: 0,
       end: 30,
     },
@@ -119,7 +119,7 @@ export class ReportsComponent {
       {
         id: "weeks",
         position: "bottom",
-        show:false,
+        show: false,
         offset: 40,
         data: [],
         axisLine: {
@@ -134,7 +134,6 @@ export class ReportsComponent {
           align: "left",
           lineHeight: 46,
           verticalAlign: "top",
-
         },
         splitLine: {
           show: false,
@@ -279,7 +278,22 @@ export class ReportsComponent {
           145, 153, 142, 146, 146, 141, 142, 146, 144, 142, 143, 149, 146, 152,
           152, 144, 149, 153, 150, 150, 150, 150, 150, 150, 150, 150,
         ],
-
+        markArea:{
+          itemStyle:{
+            opacity:0.3
+          },
+          data:[
+            [
+              {
+                name: "Future dates",
+                xAxis:"W/15"
+              },
+              {
+                xAxis:"W/26"
+              }
+            ]
+          ]
+        }
       },
       {
         name: "",
@@ -288,30 +302,30 @@ export class ReportsComponent {
         symbol: "none",
         xAxisIndex: 1,
         data: [],
-        // markArea: {
-        //   itemStyle: {
-        //     color: "rgba(25, 173, 177, 0.4)",
-        //   },
-        //   data: [
-        //     [
-        //       {
-        //         name: "Shor",
-        //         xAxis: "2020-04-02",
-        //       },
-        //       {
-        //         xAxis: "2020-04-03",
-        //       },
-        //     ],
-        //   ],
-        // },
+        markArea: {
+          itemStyle: {
+            opacity:0.3
+          },
+          data: [
+            [
+              {
+                name: "Past dates",
+                xAxis:'T / 12'
+              },
+              {
+                xAxis:'W/15'
+              },
+            ],
+          ],
+        },
       },
-      {
-        name: "hidden",
-        type: "line",
-        xAxisId: "axe1",
-        symbol: "none",
-        data: [],
-      },
+      // {
+      //   name: "hidden",
+      //   type: "line",
+      //   xAxisId: "axe1",
+      //   symbol: "none",
+      //   data: [],
+      // },
     ],
   };
   // SideBar
@@ -377,16 +391,16 @@ export class ReportsComponent {
           }),
           markArea: {
             itemStyle: {
-              color: 'rgba(255, 173, 177, 0.4)',
+              color: "rgba(255, 173, 177, 0.4)",
             },
             data: [
               [
                 {
-                  name: "High",
-                  coord:[0,0]              
+                  name: "Future days",
+                  xAxis: 0,
                 },
                 {
-                  xAxis:new Date(this.timeAxisData[20])
+                  coord: [10, 1000],
                 },
               ],
             ],
@@ -769,5 +783,4 @@ export class ReportsComponent {
   saveOption(formvalue) {
     this.dimension = formvalue.dimension;
   }
-
 }
