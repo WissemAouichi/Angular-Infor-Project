@@ -289,7 +289,7 @@ export class ReportsComponent {
                 xAxis:"W/15"
               },
               {
-                xAxis:"W/26"
+                xAxis:"T/27"
               }
             ]
           ]
