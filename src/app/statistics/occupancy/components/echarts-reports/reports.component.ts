@@ -4,7 +4,6 @@ import { EChartsOption } from "echarts";
 import { SohoBusyIndicatorDirective } from "ids-enterprise-ng";
 import * as moment from "moment";
 import { ReportsService } from "./reports.service";
-import * as echarts from 'echarts/core';
 @Component({
   selector: "echarts-reports",
   templateUrl: "./reports.component.html",
@@ -64,9 +63,18 @@ export class ReportsComponent {
       containLabel: true,
     },
     dataZoom: {
-      top: 390,
+      top: 385,
       start: 0,
       end: 30,
+    },
+    toolbox: {
+      feature: {
+        dataZoom: {
+          yAxisIndex: 'none'
+        },
+        restore: {},
+        saveAsImage: {}
+      }
     },
     xAxis: [
       {
@@ -280,6 +288,7 @@ export class ReportsComponent {
         ],
         markArea:{
           itemStyle:{
+            color:'rgb(125, 249, 255)',
             opacity:0.3
           },
           data:[
