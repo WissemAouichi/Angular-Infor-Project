@@ -1,22 +1,32 @@
-
-<div class="accordion panel inverse" data-options="{allowOnePane: true, rerouteOnLinkClick: false}">
- <div class="accordion-header"><a [routerLink]="['homepage']"><span>Home</span></a></div>
- 
-  
-  <div class="accordion-header"><a href="javascript:void(0);"><span>Help</span></a></div>
-  <div class="accordion-pane">
-    <div class="accordion-header list-item"><a [routerLink]="['about']"><span>About</span></a></div>
-    
+<div
+  class="accordion panel inverse"
+  data-options="{allowOnePane: true, rerouteOnLinkClick: false}"
+>
+  <div class="accordion-header">
+    <a [routerLink]="['homepage']"><span>Home</span></a>
   </div>
 
-  <div class="accordion-header"><a [routerLink]="['statistics']"><span>Statistics</span></a></div>
-
-  
-
+  <div class="accordion-header">
+    <a [routerLink]="['statistics']"><span>Statistics</span></a>
+  </div>
+  <div class="accordion-header">
+    <a href="javascript:void(0);"><span>Help</span></a>
+  </div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item">
+      <a [routerLink]="['about']"><span>About</span></a>
+    </div>
+  </div>
 </div>
 
 <div class="branding">
-  <svg class="icon" viewBox="0 0 34 34" focusable="false" aria-hidden="true" role="presentation">
+  <svg
+    class="icon"
+    viewBox="0 0 34 34"
+    focusable="false"
+    aria-hidden="true"
+    role="presentation"
+  >
     <use xlink:href="#icon-logo"></use>
   </svg>
 </div>
