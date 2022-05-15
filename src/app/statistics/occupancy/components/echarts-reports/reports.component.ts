@@ -349,7 +349,6 @@ export class ReportsComponent {
     this.optionForm = new FormGroup({
       dimension: this.dimension,
     });
-    console.log(this.optionForm);
     this.globalData = this.dataService.getData();
     this.subValuesKeys();
     this.totalAsDouble = this.globalData.data[0].totalAsDouble;
@@ -358,9 +357,6 @@ export class ReportsComponent {
         return [new Date(day.date), null];
       })
     );
-    console.log("timeAXISDATAAA", this.timeAxisData);
-    console.log("subValues keys", this.subValuesKeys());
-    console.log("The init data", this.globalData);
     this.mergeOption = {
       xAxis: [
         {
@@ -490,13 +486,12 @@ export class ReportsComponent {
       ],
     };
     this.totalPerKey(this.dataKeys);
-    console.log("the keysProgress array", this.keysProgress);
   }
   /**
    * Chart Datazoom Event
    */
   onChartEvent(event: any, type: string) {
-    console.log("chart event:", type, event, event.end);
+    // console.log("chart event:", type, event, event.end);
     // let minMaxDate = {
     //   minDate: this.dateService.getDateFromLongDate(
     //     this.datestamp[
@@ -578,7 +573,6 @@ export class ReportsComponent {
    *
    */
   onApply() {
-    console.log(this.optionForm);
     if (
       this.optionForm.value.dimension == "empty" ||
       this.optionForm.value.dimension == ""
@@ -586,8 +580,6 @@ export class ReportsComponent {
       this.globalData = this.dataService.getData();
       this.subValuesKeys();
       this.totalAsDouble = this.globalData.data[0].totalAsDouble;
-      console.log("subValues keys", this.subValuesKeys());
-      console.log("The init data", this.globalData);
       this.mergeOption = {
         xAxis: {
           data: this.globalData.data[0].days.map((day) => {
@@ -645,13 +637,10 @@ export class ReportsComponent {
         ],
       };
       this.totalPerKey(this.dataKeys);
-      console.log("the keysProgress array", this.keysProgress);
     } else if (this.optionForm.value.dimension == "buckets") {
       this.globalData = this.dataService.getBucketsData();
       this.subValuesKeys();
       this.totalAsDouble = this.globalData.data[0].totalAsDouble;
-      console.log("subValues keys", this.subValuesKeys());
-      console.log("The init data", this.globalData);
       this.mergeOption = {
         xAxis: {
           data: this.globalData.data[0].days.map((day) => {
@@ -714,13 +703,10 @@ export class ReportsComponent {
         ],
       };
       this.totalPerKey(this.dataKeys);
-      console.log("the keysProgress array", this.keysProgress);
     } else if (this.optionForm.value.dimension == "market") {
       this.globalData = this.dataService.getMarketSegmentData();
       this.subValuesKeys();
       this.totalAsDouble = this.globalData.data[0].totalAsDouble;
-      console.log("subValues keys", this.subValuesKeys());
-      console.log("The init data", this.globalData);
       this.mergeOption = {
         xAxis: {
           data: this.globalData.data[0].days.map((day) => {
@@ -783,7 +769,6 @@ export class ReportsComponent {
         ],
       };
       this.totalPerKey(this.dataKeys);
-      console.log("the keysProgress array", this.keysProgress);
     }
   }
   public keyProgress = 50;

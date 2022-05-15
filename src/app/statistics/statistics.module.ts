@@ -29,6 +29,7 @@ import {
   DataZoomComponent,
   MarkAreaComponent,
   MarkLineComponent,
+  LegendComponent
 } from "echarts/components";
 import { LineChart } from "echarts/charts";
 import { UniversalTransition } from "echarts/features";
@@ -36,6 +37,7 @@ import { CanvasRenderer } from "echarts/renderers";
 import { NewComponentComponent } from './occupancy/components/echarts-reports/new-component/new-component.component';
 
 echarts.use([
+  LegendComponent,
   DataZoomComponent,
   TitleComponent,
   ToolboxComponent,

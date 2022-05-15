@@ -202,9 +202,12 @@ export class EchartsInforPriceComponent implements OnInit {
     this.priceData = chartDataGloabal.chartData;
     this.datestamp = chartDataGloabal.ticks;
     this.displayChart = true;
-    this;
     this.mergeOption = {
       dataZoom: { show: this.showDataZoom },
+      xAxis:[{
+        id:"Axe3",
+        data:this.datestamp
+      }],
       series: [
         { data: this.mapData(0) },
         { data: this.mapData(1) },
@@ -253,14 +256,46 @@ export class EchartsInforPriceComponent implements OnInit {
     xAxis: [
       {
         type: "time",
-        boundaryGap: true,
+        interval:2,
+        splitNumber:1,
         axisLabel: {
-          showMinLabel: true,
-          showMaxLabel: true,
-          formatter: "{MMM} {d}",
-          fontSize: 12,
-          fontFamily: "Helvetica",
+          formatter: "{MMM}",
+          showMinLabel:true,
+          showMaxLabel:true
         },
+        axisTick:{
+          show:true,
+        },
+        splitLine:{
+          show:false,
+        },
+        minorSplitLine:{
+          show:true
+        }
+      },
+      {
+        type: "time",
+        id: "Axe3",
+        boundaryGap: false,
+        position: "bottom",
+        offset: 50,
+        interval:2,
+        splitNumber:1,
+        axisLabel: {
+          formatter: "{Q}",
+          showMinLabel:true,
+          showMaxLabel:true
+        },
+        axisTick:{
+          show:true,
+        },
+        splitLine:{
+          show:false,
+        },
+        minorSplitLine:{
+          show:true
+        },
+        data:[]
       },
       {
         type: "time",
@@ -268,6 +303,19 @@ export class EchartsInforPriceComponent implements OnInit {
         boundaryGap: false,
         position: "bottom",
         offset: 30,
+        interval:200,
+        splitNumber:50,
+        axisLabel: {
+          formatter: "{dd}",
+          showMinLabel:true,
+          showMaxLabel:true
+        },
+        axisTick:{
+          show:true,
+        },
+        splitLine:{
+          show:false,
+        }
       },
     ],
     yAxis: {
@@ -277,6 +325,7 @@ export class EchartsInforPriceComponent implements OnInit {
     grid: { top: 8, left: "5%", right: "5%" },
     dataZoom: {
       type: "slider",
+      top: 380,
       start: 0,
       end: 10,
     },
@@ -327,6 +376,7 @@ export class EchartsInforPriceComponent implements OnInit {
       },
       {
         name: this.priceData[2].key,
+        xAxisId: "Axe3",
         type: "line",
         smooth: false,
         showSymbol: false,
@@ -412,10 +462,24 @@ export class EchartsInforPriceComponent implements OnInit {
     } else return null;
   }
 
+  mapData2(num){
+    let arr = [];
+    if (
+      this.priceData[num] &&
+      this.priceData[num].key !== "lblMaxPriceLine" &&
+      this.priceData[num].key !== "lblCapacityN1"
+    ) {
+      for (let i = 0; i < this.priceData[num].values.length; i++) {
+        arr.push(this.priceData[num].values[i].y);
+      }
+      return arr;
+    } else return null;
+  }
+
   refreshData() {}
 
   onChartEvent(event: any, type: string) {
-    console.log("chart event:", type, event, event.end);
+    // console.log("chart event:", type, event, event.end);
   }
 
   /**
