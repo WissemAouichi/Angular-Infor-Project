@@ -5,7 +5,7 @@ import PRICE_VARIATION from '../price-variation/Price Variation.json'
 @Component({
   selector: 'echarts-price',
   template: `<div class="row top-padding">
-  <div class="two-thirds column">
+  <div class=" column">
     <div class="widget">
       <div class="widget-header">
         <h2 class="widget-title">Line Chart - Occupancy</h2>

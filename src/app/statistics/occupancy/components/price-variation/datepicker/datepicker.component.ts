@@ -60,7 +60,6 @@ export class DatePickerComponent {
   constructor() { }
 
   myFunction() {
-    console.log("Hellllllooooo", this.datepicker);
     (this.datepicker as any).readonly = true;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
