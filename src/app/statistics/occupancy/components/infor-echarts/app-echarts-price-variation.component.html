@@ -2,7 +2,7 @@
 </div>
 <!--********* Echarts Line Chart Starts ************-->
 <div *ngIf="displaymobileversion!"><h1>Wissem</h1></div>
-<div *ngIf="displayChart" echarts #echarts [initOpts]="{ locale: 'FR' }" [options]="chartInitOption" [merge]=mergeOption
+<div *ngIf="displayChart" echarts #echarts [initOpts]="{ locale: 'FR' , height:380}" [options]="chartInitOption" [merge]=mergeOption
     class="demo-chart" (chartDataZoom)="onChartEvent($event, 'chartDataZoom')"></div>
 <!--********* Echarts Line Chart Ends ************-->
 <div *ngIf="chartDataGloabal && chartDataGloabal.showStaticLegend">

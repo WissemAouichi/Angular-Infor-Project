@@ -325,9 +325,9 @@ export class EchartsInforPriceComponent implements OnInit {
     grid: { top: 8, left: "5%", right: "5%" },
     dataZoom: {
       type: "slider",
-      top: 380,
       start: 0,
       end: 10,
+      bottom: 0
     },
     series: [
       {
