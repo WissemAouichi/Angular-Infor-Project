@@ -26,7 +26,7 @@
     "echarts": "^5.2.1",
     "ids-enterprise-ng": "^6.1.1",
     "moment": "^2.29.1",
-    "ngx-echarts": "^7.0.2",
+    "ngx-echarts": "^7.1.0",
     "rxjs": "~6.5.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
