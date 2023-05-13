@@ -10,7 +10,7 @@ import PRICE_VARIATION from '../price-variation/Price Variation.json'
       <div class="widget-header">
         <h2 class="widget-title">Line Chart - Occupancy</h2>
       </div>
-      <div class="widget-content">
+      <div class="widget-content" style="height: fit-content;">
         <div echarts [options]="chartOption" class="demo-chart"></div>
       </div>
     </div>
